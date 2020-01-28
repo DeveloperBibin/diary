@@ -34,8 +34,8 @@
         <relationship name="imageOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Diary" inverseName="images" inverseEntity="Diary"/>
     </entity>
     <elements>
-        <element name="Diary" positionX="-63" positionY="-18" width="128" height="193"/>
         <element name="Contact" positionX="-54" positionY="45" width="128" height="118"/>
+        <element name="Diary" positionX="-63" positionY="-18" width="128" height="193"/>
         <element name="Location" positionX="-36" positionY="63" width="128" height="133"/>
         <element name="Photo" positionX="-18" positionY="90" width="128" height="103"/>
     </elements>

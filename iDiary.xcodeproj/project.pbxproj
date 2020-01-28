@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52B52A123E0292A005563F6 /* DiaryThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A023E0292A005563F6 /* DiaryThumbnail.swift */; };
+		B52B52A323E03959005563F6 /* TodayCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A223E03959005563F6 /* TodayCardButton.swift */; };
+		B52B52A623E03D6C005563F6 /* SiriShortCutsNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A523E03D6C005563F6 /* SiriShortCutsNames.swift */; };
+		B538B8D023E04103003598C2 /* OnAppearCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538B8CF23E04103003598C2 /* OnAppearCheck.swift */; };
+		B538B8D223E05045003598C2 /* TodayCardThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538B8D123E05045003598C2 /* TodayCardThumbnail.swift */; };
+		B5EF098D23E097F000EB5DEC /* TodayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF098C23E097F000EB5DEC /* TodayCard.swift */; };
+		B5EF099023E099A900EB5DEC /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF098F23E099A900EB5DEC /* TextView.swift */; };
 		B5FED25B23E019D4005D5F0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FED25A23E019D4005D5F0B /* AppDelegate.swift */; };
 		B5FED25D23E019D4005D5F0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FED25C23E019D4005D5F0B /* SceneDelegate.swift */; };
 		B5FED26023E019D4005D5F0B /* iDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5FED25E23E019D4005D5F0B /* iDiary.xcdatamodeld */; };
-		B5FED26223E019D5005D5F0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FED26123E019D5005D5F0B /* ContentView.swift */; };
+		B5FED26223E019D5005D5F0B /* HomeDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FED26123E019D5005D5F0B /* HomeDiary.swift */; };
 		B5FED26423E019DC005D5F0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FED26323E019DC005D5F0B /* Assets.xcassets */; };
 		B5FED26723E019DC005D5F0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FED26623E019DC005D5F0B /* Preview Assets.xcassets */; };
 		B5FED26A23E019DC005D5F0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FED26823E019DC005D5F0B /* LaunchScreen.storyboard */; };
@@ -40,11 +47,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B52B52A023E0292A005563F6 /* DiaryThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryThumbnail.swift; sourceTree = "<group>"; };
+		B52B52A223E03959005563F6 /* TodayCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardButton.swift; sourceTree = "<group>"; };
+		B52B52A523E03D6C005563F6 /* SiriShortCutsNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriShortCutsNames.swift; sourceTree = "<group>"; };
+		B538B8CF23E04103003598C2 /* OnAppearCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnAppearCheck.swift; sourceTree = "<group>"; };
+		B538B8D123E05045003598C2 /* TodayCardThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardThumbnail.swift; sourceTree = "<group>"; };
+		B5EF098C23E097F000EB5DEC /* TodayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCard.swift; sourceTree = "<group>"; };
+		B5EF098F23E099A900EB5DEC /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		B5FED25723E019D4005D5F0B /* iDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FED25A23E019D4005D5F0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5FED25C23E019D4005D5F0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B5FED25F23E019D4005D5F0B /* iDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iDiary.xcdatamodel; sourceTree = "<group>"; };
-		B5FED26123E019D5005D5F0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B5FED26123E019D5005D5F0B /* HomeDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDiary.swift; sourceTree = "<group>"; };
 		B5FED26323E019DC005D5F0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5FED26623E019DC005D5F0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B5FED26923E019DC005D5F0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,6 +100,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B52B52A423E03D42005563F6 /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				B52B52A523E03D6C005563F6 /* SiriShortCutsNames.swift */,
+				B538B8CF23E04103003598C2 /* OnAppearCheck.swift */,
+			);
+			path = HelperClasses;
+			sourceTree = "<group>";
+		};
+		B5EF098E23E0998E00EB5DEC /* HostingControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5EF098F23E099A900EB5DEC /* TextView.swift */,
+			);
+			path = HostingControllers;
+			sourceTree = "<group>";
+		};
 		B5FED24E23E019D0005D5F0B = {
 			isa = PBXGroup;
 			children = (
@@ -109,10 +140,13 @@
 		B5FED25923E019D4005D5F0B /* iDiary */ = {
 			isa = PBXGroup;
 			children = (
+				B5EF098E23E0998E00EB5DEC /* HostingControllers */,
+				B52B52A423E03D42005563F6 /* HelperClasses */,
+				B5FED29723E0266A005D5F0B /* SubViews */,
+				B5FED29623E0265B005D5F0B /* Views */,
 				B5FED28D23E01ECF005D5F0B /* DataModels */,
 				B5FED25A23E019D4005D5F0B /* AppDelegate.swift */,
 				B5FED25C23E019D4005D5F0B /* SceneDelegate.swift */,
-				B5FED26123E019D5005D5F0B /* ContentView.swift */,
 				B5FED26323E019DC005D5F0B /* Assets.xcassets */,
 				B5FED26823E019DC005D5F0B /* LaunchScreen.storyboard */,
 				B5FED26B23E019DC005D5F0B /* Info.plist */,
@@ -157,6 +191,25 @@
 				B5FED29423E0224D005D5F0B /* Location.swift */,
 			);
 			path = DataModels;
+			sourceTree = "<group>";
+		};
+		B5FED29623E0265B005D5F0B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5FED26123E019D5005D5F0B /* HomeDiary.swift */,
+				B5EF098C23E097F000EB5DEC /* TodayCard.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B5FED29723E0266A005D5F0B /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				B52B52A023E0292A005563F6 /* DiaryThumbnail.swift */,
+				B52B52A223E03959005563F6 /* TodayCardButton.swift */,
+				B538B8D123E05045003598C2 /* TodayCardThumbnail.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,13 +343,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52B52A123E0292A005563F6 /* DiaryThumbnail.swift in Sources */,
+				B52B52A323E03959005563F6 /* TodayCardButton.swift in Sources */,
+				B52B52A623E03D6C005563F6 /* SiriShortCutsNames.swift in Sources */,
 				B5FED29323E021D4005D5F0B /* Photo.swift in Sources */,
 				B5FED29123E0214F005D5F0B /* Contact.swift in Sources */,
 				B5FED29523E0224D005D5F0B /* Location.swift in Sources */,
+				B538B8D023E04103003598C2 /* OnAppearCheck.swift in Sources */,
 				B5FED25B23E019D4005D5F0B /* AppDelegate.swift in Sources */,
+				B538B8D223E05045003598C2 /* TodayCardThumbnail.swift in Sources */,
+				B5EF099023E099A900EB5DEC /* TextView.swift in Sources */,
+				B5EF098D23E097F000EB5DEC /* TodayCard.swift in Sources */,
 				B5FED28F23E01EF0005D5F0B /* Diary.swift in Sources */,
 				B5FED26023E019D4005D5F0B /* iDiary.xcdatamodeld in Sources */,
-				B5FED26223E019D5005D5F0B /* ContentView.swift in Sources */,
+				B5FED26223E019D5005D5F0B /* HomeDiary.swift in Sources */,
 				B5FED25D23E019D4005D5F0B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

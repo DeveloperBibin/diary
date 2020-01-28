@@ -22,9 +22,9 @@ class Diary : NSManagedObject, Identifiable{
     @NSManaged public var comments : Bool
 
     
-//    @NSManaged public var imageSet : Set<Image>
-//    @NSManaged public var placeSet : Set<Place>
-//    @NSManaged public var contactSet : Set<Contact>
+    @NSManaged public var images : Set<Photo>
+    @NSManaged public var locations : Set<Location>
+    @NSManaged public var contacts : Set<Contact>
     
     
     
@@ -143,4 +143,19 @@ extension Date {
     var isLastDayOfMonth: Bool {
         return dayAfter.month != month
     }
+}
+
+extension Diary
+{
+    
+    var isEmpty : Bool
+    {
+        if (self.title.isBlank && self.entry.isBlank && self.contacts.isEmpty && self.images.isEmpty && self.locations.isEmpty)
+        {
+            return true
+        }
+        else
+        {return false}
+    }
+    
 }

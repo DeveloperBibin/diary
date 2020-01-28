@@ -24,12 +24,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        let contentView = ContentView().environment(\.managedObjectContext, context)
-
+        //let contentView = HomeDiary()
+        let homeDiary = HomeDiary().environment(\.managedObjectContext, context)
+    
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = UIHostingController(rootView: homeDiary)
             self.window = window
             window.makeKeyAndVisible()
         }
@@ -55,6 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        OnAppearCheck.shared.createTodayIfEmpty()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
