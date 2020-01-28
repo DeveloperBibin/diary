@@ -16,6 +16,10 @@
 		B5FED26A23E019DC005D5F0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FED26823E019DC005D5F0B /* LaunchScreen.storyboard */; };
 		B5FED27523E019DD005D5F0B /* iDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FED27423E019DD005D5F0B /* iDiaryTests.swift */; };
 		B5FED28023E019DD005D5F0B /* iDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FED27F23E019DD005D5F0B /* iDiaryUITests.swift */; };
+		B5FED28F23E01EF0005D5F0B /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FED28E23E01EF0005D5F0B /* Diary.swift */; };
+		B5FED29123E0214F005D5F0B /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FED29023E0214F005D5F0B /* Contact.swift */; };
+		B5FED29323E021D4005D5F0B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FED29223E021D4005D5F0B /* Photo.swift */; };
+		B5FED29523E0224D005D5F0B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FED29423E0224D005D5F0B /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		B5FED27B23E019DD005D5F0B /* iDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FED27F23E019DD005D5F0B /* iDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDiaryUITests.swift; sourceTree = "<group>"; };
 		B5FED28123E019DD005D5F0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5FED28E23E01EF0005D5F0B /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		B5FED29023E0214F005D5F0B /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		B5FED29223E021D4005D5F0B /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		B5FED29423E0224D005D5F0B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 		B5FED25923E019D4005D5F0B /* iDiary */ = {
 			isa = PBXGroup;
 			children = (
+				B5FED28D23E01ECF005D5F0B /* DataModels */,
 				B5FED25A23E019D4005D5F0B /* AppDelegate.swift */,
 				B5FED25C23E019D4005D5F0B /* SceneDelegate.swift */,
 				B5FED26123E019D5005D5F0B /* ContentView.swift */,
@@ -137,6 +146,17 @@
 				B5FED28123E019DD005D5F0B /* Info.plist */,
 			);
 			path = iDiaryUITests;
+			sourceTree = "<group>";
+		};
+		B5FED28D23E01ECF005D5F0B /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				B5FED28E23E01EF0005D5F0B /* Diary.swift */,
+				B5FED29023E0214F005D5F0B /* Contact.swift */,
+				B5FED29223E021D4005D5F0B /* Photo.swift */,
+				B5FED29423E0224D005D5F0B /* Location.swift */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5FED29323E021D4005D5F0B /* Photo.swift in Sources */,
+				B5FED29123E0214F005D5F0B /* Contact.swift in Sources */,
+				B5FED29523E0224D005D5F0B /* Location.swift in Sources */,
 				B5FED25B23E019D4005D5F0B /* AppDelegate.swift in Sources */,
+				B5FED28F23E01EF0005D5F0B /* Diary.swift in Sources */,
 				B5FED26023E019D4005D5F0B /* iDiary.xcdatamodeld in Sources */,
 				B5FED26223E019D5005D5F0B /* ContentView.swift in Sources */,
 				B5FED25D23E019D4005D5F0B /* SceneDelegate.swift in Sources */,
