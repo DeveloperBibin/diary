@@ -88,7 +88,7 @@ struct navigationView : View
             
             do
             {
-                if self.managedObjectcontext.hasChanges
+                if self.managedObjectcontext.hasChanges && !self.diaries.first!.isEmpty
                 {try self.managedObjectcontext.save()
                     print("Saved")
                 }
@@ -122,10 +122,10 @@ struct EmptyIndication : View
                     .frame(height : UIScreen.main.bounds.size.height / 10)
                 Image("empty").resizable()
                     .frame(width :250, height : 250)
-                Text("Past diaries will appear here ")
+                Text("Past diaries will appear here.")
                     .font(.headline)
                     .fontWeight(.bold)
-                    .foregroundColor(Color(.systemGray3))
+                    .foregroundColor(blueGray400)
             }
             Spacer()
         }

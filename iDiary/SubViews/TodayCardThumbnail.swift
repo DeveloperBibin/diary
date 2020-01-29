@@ -98,7 +98,7 @@ struct TodayCardThumbnail: View {
                             .fontWeight(.medium)
                         Text("\((self.data.date.dayOfWeek()?.prefix(3).uppercased())!)")
                             .font(.system(.subheadline, design: .monospaced))
-                            .foregroundColor(Color(.tertiaryLabel))
+                            .foregroundColor(blueGray600)
                             .fontWeight(.bold)
                 }
             
@@ -125,6 +125,7 @@ struct TodayCardThumbnail: View {
             {
                 Text(self.data.title.isBlank ? "Dear Diary" : self.data.title)
                     .font(.headline)
+                 .padding(.top, 6)
                 Text(self.data.entry)
                     .font(.subheadline)
                     .fontWeight(.light)
