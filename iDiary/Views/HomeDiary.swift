@@ -100,6 +100,7 @@ struct navigationView : View
         })
         {
             TodayCard(diary: self.diaries.first!)
+                .environment(\.managedObjectContext, self.managedObjectcontext)
             
         })
         

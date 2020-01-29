@@ -14,6 +14,6 @@ class FloatButtonData : ObservableObject {
     @Published var onLocationButtonClicked : Bool = false
     @Published var onPersonButtonClicked : Bool = false
     @Published var onPhtotoButtonClicked : Bool = false
-    @Published var onButtonClicked : Bool = false
+    @Published var onButtonClicked : Bool = true
     
 }

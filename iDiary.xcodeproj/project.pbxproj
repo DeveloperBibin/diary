@@ -12,6 +12,7 @@
 		B52B52A623E03D6C005563F6 /* SiriShortCutsNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A523E03D6C005563F6 /* SiriShortCutsNames.swift */; };
 		B538B8D023E04103003598C2 /* OnAppearCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538B8CF23E04103003598C2 /* OnAppearCheck.swift */; };
 		B538B8D223E05045003598C2 /* TodayCardThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538B8D123E05045003598C2 /* TodayCardThumbnail.swift */; };
+		B541A03523E191B6009B79AA /* LocationThumbailTodayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B541A03423E191B6009B79AA /* LocationThumbailTodayCard.swift */; };
 		B544C73223E147E3009127F5 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C73123E147E3009127F5 /* Colours.swift */; };
 		B544C73523E15287009127F5 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C73423E15287009127F5 /* FloatingButton.swift */; };
 		B544C73823E159D1009127F5 /* FloatButtonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C73723E159D1009127F5 /* FloatButtonData.swift */; };
@@ -60,6 +61,7 @@
 		B52B52A523E03D6C005563F6 /* SiriShortCutsNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriShortCutsNames.swift; sourceTree = "<group>"; };
 		B538B8CF23E04103003598C2 /* OnAppearCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnAppearCheck.swift; sourceTree = "<group>"; };
 		B538B8D123E05045003598C2 /* TodayCardThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardThumbnail.swift; sourceTree = "<group>"; };
+		B541A03423E191B6009B79AA /* LocationThumbailTodayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationThumbailTodayCard.swift; sourceTree = "<group>"; };
 		B544C73123E147E3009127F5 /* Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
 		B544C73423E15287009127F5 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		B544C73723E159D1009127F5 /* FloatButtonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatButtonData.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				B538B8D123E05045003598C2 /* TodayCardThumbnail.swift */,
 				B544C73F23E16CB3009127F5 /* LocationResultModel.swift */,
 				B544C74123E16D21009127F5 /* PermissionDenied.swift */,
+				B541A03423E191B6009B79AA /* LocationThumbailTodayCard.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				B544C73C23E16AE3009127F5 /* FetchPlacesClass.swift in Sources */,
 				B544C73523E15287009127F5 /* FloatingButton.swift in Sources */,
 				B52B52A323E03959005563F6 /* TodayCardButton.swift in Sources */,
+				B541A03523E191B6009B79AA /* LocationThumbailTodayCard.swift in Sources */,
 				B52B52A623E03D6C005563F6 /* SiriShortCutsNames.swift in Sources */,
 				B5FED29323E021D4005D5F0B /* Photo.swift in Sources */,
 				B5FED29123E0214F005D5F0B /* Contact.swift in Sources */,
