@@ -22,17 +22,16 @@ struct TodayCard: View {
                     Title(date: self.$diary.date)
                     WriteDiary(title: self.$diary.title, entry: self.$diary.entry)
             }
-        .blur(radius: self.floatButtonData.onButtonClicked ? 20 : 0)
+            .blur(radius: self.floatButtonData.onButtonClicked ? 20 : 0)
             
             if self.floatButtonData.onButtonClicked
             {
-               
                 
                 AddedContectView(diary: self.diary)
                     .environment(\.managedObjectContext, self.managedObjectcontext)
                     .transition(.scaleAndFade)
-                }
-                
+            }
+            
             
             
             HStack{
@@ -40,16 +39,24 @@ struct TodayCard: View {
                     .frame(height : 150)}
             FloatingButton(data: floatButtonData).padding(40)
         }.onAppear(){self.floatButtonData.onButtonClicked = false}
-        .background(EmptyView().sheet(isPresented: self.$floatButtonData.onLocationButtonClicked, onDismiss:
-            {
-                if self.tempLocationData != nil
+            .background(EmptyView().sheet(isPresented: self.$floatButtonData.onLocationButtonClicked, onDismiss:
                 {
-                    self.addLocation()
+                    if self.tempLocationData != nil
+                    {
+                        self.addLocation()
+                    }
+            })
+            {
+                LocationSearch(dataPicked: self.$tempLocationData)
                 }
-        })
-        {
-            LocationSearch(dataPicked: self.$tempLocationData)
-            }
+        )
+            
+            .background(EmptyView().sheet(isPresented: self.$floatButtonData.onPersonButtonClicked)
+            {
+                ContactSearch(diary: self.diary)
+                    .environment(\.managedObjectContext, self.managedObjectcontext)
+                
+                }
         )
         
     }
@@ -86,49 +93,82 @@ struct AddedContectView : View
         {
             if !(self.diary.images.isEmpty && self.diary.contacts.isEmpty && self.diary.locations.isEmpty)
             {
-            VStack{
-            Spacer()
-                .frame(height : 40)
-            
-          
-            
-            if !(self.diary.images.isEmpty)
-            {
-                HStack(alignment : .firstTextBaseline){
-                    Image(systemName: "photo.on.rectangle")
-                    Text("Images")
-                } .font(.callout)
-                    .padding([.leading, .trailing])
-            }
-            
-            if !(self.diary.locations.isEmpty)
-            {
-                HStack(alignment : .firstTextBaseline){
-                    Image(systemName: "map")
-                    Text("Locations")
-                        .fontWeight(.bold)
-                } .font(.callout)
-                    .padding([.leading, .trailing])
-                
-                ScrollView(.horizontal, showsIndicators: false){
-                    HStack(){
-                        ForEach(Array(self.diary.locations))
-                        {
-                            (location : Location) in
-                            LocationThumbailTodayCard(location: location)
+                VStack{
+                    Spacer()
+                        .frame(height : 40)
+                    
+                    
+                    
+                    if !(self.diary.images.isEmpty)
+                    {
+                        HStack(alignment : .firstTextBaseline){
+                            Image(systemName: "photo.on.rectangle")
+                            Text("Images")
+                            Spacer()
+                        } .font(.callout)
+                            .padding([.leading, .trailing])
+                    }
+                    
+                    if !(self.diary.contacts.isEmpty)
+                    {
+                        Divider()
+                        HStack(alignment : .firstTextBaseline){
+                            Image(systemName: "person.crop.square")
+                            Text("Contacts")
+                                .fontWeight(.bold)
+                            Spacer()
+                        } .font(.callout)
+                            .padding([.leading, .trailing])
+                        
+                        ScrollView(.horizontal, showsIndicators: false){
+                            HStack(){
+                                ForEach(Array(self.diary.contacts))
+                                {
+                                    (contact : Contact) in
+                                    ContactThumbnailTodayCard(contact: contact)
+                                    .environment(\.managedObjectContext, self.managedObjectcontext)
+                                }
+                                
+                            }
+                            .padding([.leading])
+                            //.animation(.default)
+                            
+                            
                         }
+                        .padding([ .bottom])
                         
                     }
-                    .padding([.leading])
-                    //.animation(.default)
                     
+                    if !(self.diary.locations.isEmpty)
+                    {
+                        Divider()
+                        HStack(alignment : .firstTextBaseline){
+                            Image(systemName: "map")
+                            Text("Locations")
+                                .fontWeight(.bold)
+                            Spacer()
+                        } .font(.callout)
+                            .padding([.leading, .trailing])
+                        
+                        ScrollView(.horizontal, showsIndicators: false){
+                            HStack(){
+                                ForEach(Array(self.diary.locations))
+                                {
+                                    (location : Location) in
+                                    LocationThumbailTodayCard(location: location)
+                                }
+                                
+                            }
+                            .padding([.leading])
+                            //.animation(.default)
+                            
+                            
+                        }.padding([ .bottom])
+                        
+                    }
                     
+                    Spacer()
                 }
-                
-            }
-            
-            Spacer()
-            }
             }
             else
             {
@@ -136,12 +176,12 @@ struct AddedContectView : View
                     Spacer()
                     HStack{
                         Spacer()
-                    Image(systemName: "rectangle.fill.on.rectangle.angled.fill")
-                        .font(.largeTitle)
-                        .foregroundColor(Color(.secondaryLabel).opacity(0.4))
-                    Spacer()}
+                        Image(systemName: "rectangle.fill.on.rectangle.angled.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(Color(.secondaryLabel).opacity(0.4))
+                        Spacer()}
                     Spacer()
-                     
+                    
                 }
             }
         }
@@ -309,7 +349,7 @@ extension AnyTransition {
         let insertion = AnyTransition.scale(scale: 2, anchor: .center)
             .combined(with: .opacity)
         let removal =  AnyTransition.scale(scale: 2, anchor: .center)
-                   .combined(with: .opacity)
+            .combined(with: .opacity)
         return .asymmetric(insertion: insertion, removal: removal)
     }
 }

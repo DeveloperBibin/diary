@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location permission is required for fetching nearby places.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Contacts acces is required for linking contacts with diary entries.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Location  acces is required for fetching nearby places.</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

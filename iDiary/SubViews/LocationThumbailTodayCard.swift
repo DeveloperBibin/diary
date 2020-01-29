@@ -13,7 +13,7 @@ struct LocationThumbailTodayCard: View {
     @Environment(\.managedObjectContext) var managedObjectcontext
     var colors : [Color]
     {
-        [ Color(.systemTeal),Color(.systemBlue)]
+        [ Color(.systemGray4),Color(.systemGray)]
     }
     var gradient: LinearGradient {
         LinearGradient(gradient: Gradient(colors: colors),
