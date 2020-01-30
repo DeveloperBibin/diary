@@ -72,13 +72,12 @@ struct navigationView : View
                                     {
                                         NavigationLink(destination : EmptyView())
                                         {DiaryThumbnail(data: diary)}
-                                        
+                                
                                     }
                                     
                                 }.onDelete(perform: delete)
-                                     .padding(.trailing, 10)
+                                    .padding(.trailing, 10)
                                     .listRowInsets(EdgeInsets())
-                                   
                             }
                             else
                             {
@@ -87,9 +86,7 @@ struct navigationView : View
                             }
                             
                     }
-                    
-                    
-                    
+              
                 }
                 .navigationBarTitle(Text("iDiary"))
         }.background(EmptyView().sheet(isPresented: self.$todayCardIsShown, onDismiss: {
@@ -98,6 +95,13 @@ struct navigationView : View
             {
                 if self.managedObjectcontext.hasChanges && !self.diaries.first!.isEmpty
                 {try self.managedObjectcontext.save()
+                    print("Saved")
+                    return
+                }
+                
+                if self.diaries.first!.isEmpty && !(self.diaries.first?.objectID.isTemporaryID)! && self.managedObjectcontext.hasChanges
+                {
+                    try self.managedObjectcontext.save()
                     print("Saved")
                 }
             }
@@ -125,15 +129,15 @@ struct AllEntriesTitle : View
     var body : some View
     {
         VStack( alignment : .leading,spacing : 10){
-        HStack{
-        Image(systemName : "list.dash")
-        .foregroundColor(blueGray400)
-        Text("All Entries")
-            .font(.subheadline)
-            .fontWeight(.bold)
-            .foregroundColor(blueGray400)
-        }
-        Divider()
+            HStack{
+                Image(systemName : "list.dash")
+                    .foregroundColor(blueGray400)
+                Text("All Entries")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .foregroundColor(blueGray400)
+            }
+            Divider()
         }
     }
 }
