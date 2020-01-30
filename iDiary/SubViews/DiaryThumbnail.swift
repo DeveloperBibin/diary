@@ -96,24 +96,18 @@ struct DiaryThumbnail: View {
                 Text(self.data.title.isBlank ? "Dear Diary" : self.data.title)
                     .foregroundColor(.primary)
                     .font(.system(.headline, design: .rounded))
-                
-                
-                
-                Spacer()
+  
 
-                
+                 Spacer()
                 VStack {
                             // Text("December 13")
                     Text("\(dateDesc)")
                                  .font(.system(.caption, design: .rounded))
-                                 .foregroundColor(Color(.systemOrange))
                                  .shadow(radius: 0.1)
                          }
-                     .padding(4)
-                         .background(RoundedRectangle(cornerRadius: 6)
-                         .fill(Color(.quaternarySystemFill))
-                         )
-                Image(systemName : "chevron.right")
+
+                
+               
             }
             
            

@@ -21,6 +21,9 @@
 		B544C73E23E16B9A009127F5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C73D23E16B9A009127F5 /* LocationManager.swift */; };
 		B544C74023E16CB3009127F5 /* LocationResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C73F23E16CB3009127F5 /* LocationResultModel.swift */; };
 		B544C74223E16D21009127F5 /* PermissionDenied.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C74123E16D21009127F5 /* PermissionDenied.swift */; };
+		B54DB59223E28EA2001A5646 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DB59123E28EA2001A5646 /* ImagePicker.swift */; };
+		B54DB59423E29102001A5646 /* ImageAndCaptionAdder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DB59323E29102001A5646 /* ImageAndCaptionAdder.swift */; };
+		B54DB59623E2AE13001A5646 /* ImageThumbnailTodayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DB59523E2AE13001A5646 /* ImageThumbnailTodayCard.swift */; };
 		B587119623E1CA75001DE6D9 /* ContactsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587119523E1CA75001DE6D9 /* ContactsFetcher.swift */; };
 		B587119823E1CB89001DE6D9 /* ContactSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587119723E1CB89001DE6D9 /* ContactSearch.swift */; };
 		B587119A23E1CC09001DE6D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587119923E1CC09001DE6D9 /* Extensions.swift */; };
@@ -75,6 +78,9 @@
 		B544C73D23E16B9A009127F5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B544C73F23E16CB3009127F5 /* LocationResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResultModel.swift; sourceTree = "<group>"; };
 		B544C74123E16D21009127F5 /* PermissionDenied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionDenied.swift; sourceTree = "<group>"; };
+		B54DB59123E28EA2001A5646 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B54DB59323E29102001A5646 /* ImageAndCaptionAdder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndCaptionAdder.swift; sourceTree = "<group>"; };
+		B54DB59523E2AE13001A5646 /* ImageThumbnailTodayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageThumbnailTodayCard.swift; sourceTree = "<group>"; };
 		B587119523E1CA75001DE6D9 /* ContactsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFetcher.swift; sourceTree = "<group>"; };
 		B587119723E1CB89001DE6D9 /* ContactSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactSearch.swift; sourceTree = "<group>"; };
 		B587119923E1CC09001DE6D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 				B544C73B23E16AE3009127F5 /* FetchPlacesClass.swift */,
 				B544C73D23E16B9A009127F5 /* LocationManager.swift */,
 				B587119523E1CA75001DE6D9 /* ContactsFetcher.swift */,
+				B54DB59123E28EA2001A5646 /* ImagePicker.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -274,6 +281,8 @@
 				B541A03423E191B6009B79AA /* LocationThumbailTodayCard.swift */,
 				B587119B23E1CC9F001DE6D9 /* ContactRow.swift */,
 				B587119D23E1E4F6001DE6D9 /* ContactThumbnailTodayCard.swift */,
+				B54DB59323E29102001A5646 /* ImageAndCaptionAdder.swift */,
+				B54DB59523E2AE13001A5646 /* ImageThumbnailTodayCard.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -429,13 +438,16 @@
 				B538B8D223E05045003598C2 /* TodayCardThumbnail.swift in Sources */,
 				B5EF099023E099A900EB5DEC /* TextView.swift in Sources */,
 				B587119C23E1CC9F001DE6D9 /* ContactRow.swift in Sources */,
+				B54DB59423E29102001A5646 /* ImageAndCaptionAdder.swift in Sources */,
 				B5EF098D23E097F000EB5DEC /* TodayCard.swift in Sources */,
 				B5FED28F23E01EF0005D5F0B /* Diary.swift in Sources */,
 				B587119823E1CB89001DE6D9 /* ContactSearch.swift in Sources */,
 				B5FED26023E019D4005D5F0B /* iDiary.xcdatamodeld in Sources */,
 				B544C73E23E16B9A009127F5 /* LocationManager.swift in Sources */,
+				B54DB59623E2AE13001A5646 /* ImageThumbnailTodayCard.swift in Sources */,
 				B587119E23E1E4F6001DE6D9 /* ContactThumbnailTodayCard.swift in Sources */,
 				B5FED26223E019D5005D5F0B /* HomeDiary.swift in Sources */,
+				B54DB59223E28EA2001A5646 /* ImagePicker.swift in Sources */,
 				B5FED25D23E019D4005D5F0B /* SceneDelegate.swift in Sources */,
 				B544C73223E147E3009127F5 /* Colours.swift in Sources */,
 			);

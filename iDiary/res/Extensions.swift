@@ -112,3 +112,45 @@ extension StringProtocol {
 }
 
 
+extension UIImage {
+    enum JPEGQuality: CGFloat {
+        case lowest  = 0
+        case low     = 0.25
+        case medium  = 0.5
+        case high    = 0.75
+        case highest = 1
+    }
+
+    func jpeg(_ jpegQuality: JPEGQuality) -> Data? {
+        return jpegData(compressionQuality: jpegQuality.rawValue)
+    }
+}
+
+func splitString (string : String) -> [String]
+
+{
+    var string1 : String = ""
+    var string2 : String = ""
+    
+    let characterArray = Array(string)
+    
+    let center : Int = string.count / 2
+    
+    var spaceCharacter : Int = 0
+    
+    for i in center ... string.count
+    {
+        if characterArray[i] == " "
+        {
+            spaceCharacter = i
+            break
+        }
+    }
+    
+    string1 = String(characterArray[0 ... spaceCharacter])
+    string2 = String(characterArray[spaceCharacter + 1 ... string.count-1])
+    
+    return [string1, string2]
+    
+    
+}

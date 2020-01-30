@@ -12,8 +12,17 @@ struct TodayCard: View {
     
     @Environment(\.managedObjectContext) var managedObjectcontext
     @ObservedObject var diary : Diary
-    @ObservedObject var floatButtonData = FloatButtonData()
+   // @ObservedObject var floatButtonData = FloatButtonData()
     @State var tempLocationData : SampleCass?
+    @State var tempImagePicked : UIImage = UIImage(named: "empty")!
+    @State var imagePicked : Bool = false
+    
+     @State var onLocationButtonClicked : Bool = false
+     @State var onPersonButtonClicked : Bool = false
+     @State var onPhtotoButtonClicked : Bool = false
+     @State var onButtonClicked : Bool = false
+    
+    
     
     var body: some View {
         ZStack(alignment : .bottomTrailing){
@@ -22,9 +31,9 @@ struct TodayCard: View {
                     Title(date: self.$diary.date)
                     WriteDiary(title: self.$diary.title, entry: self.$diary.entry)
             }
-            .blur(radius: self.floatButtonData.onButtonClicked ? 20 : 0)
+            .blur(radius: self.onButtonClicked ? 20 : 0)
             
-            if self.floatButtonData.onButtonClicked
+            if self.onButtonClicked
             {
                 
                 AddedContectView(diary: self.diary)
@@ -37,9 +46,22 @@ struct TodayCard: View {
             HStack{
                 Rectangle().fill(Color(.quaternarySystemFill).opacity(0.01))
                     .frame(height : 150)}
-            FloatingButton(data: floatButtonData).padding(40)
-        }.onAppear(){self.floatButtonData.onButtonClicked = false}
-            .background(EmptyView().sheet(isPresented: self.$floatButtonData.onLocationButtonClicked, onDismiss:
+            FloatingButton(onLocationButtonClicked: self.$onLocationButtonClicked, onPersonButtonClicked: self.$onPersonButtonClicked, onPhtotoButtonClicked: self.$onPhtotoButtonClicked, onButtonClicked: self.$onButtonClicked).padding(40)
+            
+        }
+        .onReceive(ImagePicker.shared.$image)
+        {
+            pickedImage in
+            guard let image = pickedImage else {return}
+             let photo = Photo(context: self.managedObjectcontext)
+             //photo.caption = self.caption
+             photo.id = UUID()
+             photo.image = image.jpeg(.low)!
+             self.diary.images.insert(photo)
+            
+        }
+        .onAppear(){self.onButtonClicked = false}
+            .background(EmptyView().sheet(isPresented: self.$onLocationButtonClicked, onDismiss:
                 {
                     if self.tempLocationData != nil
                     {
@@ -51,14 +73,19 @@ struct TodayCard: View {
                 }
         )
             
-            .background(EmptyView().sheet(isPresented: self.$floatButtonData.onPersonButtonClicked)
+            .background(EmptyView().sheet(isPresented: self.$onPersonButtonClicked)
             {
                 ContactSearch(diary: self.diary)
                     .environment(\.managedObjectContext, self.managedObjectcontext)
                 
                 }
         )
-        
+            .background(EmptyView().sheet(isPresented: self.$onPhtotoButtonClicked)
+            {
+                ImagePicker.shared.view
+            })
+           
+           
     }
     
     func addLocation()
@@ -107,6 +134,21 @@ struct AddedContectView : View
                             Spacer()
                         } .font(.callout)
                             .padding([.leading, .trailing])
+                        ScrollView(.horizontal, showsIndicators: false){
+                           HStack(){
+                               ForEach(Array(self.diary.images))
+                               {
+                                   (photo : Photo) in
+                                  ImageThumbnailTodayCard(photo: photo)
+                                 .environment(\.managedObjectContext, self.managedObjectcontext)
+                               }
+                               
+                           }
+                           .animation(.default)
+                           .padding([.leading])
+                     
+                       }
+                       .padding([ .bottom])
                     }
                     
                     if !(self.diary.contacts.isEmpty)
@@ -126,14 +168,13 @@ struct AddedContectView : View
                                 {
                                     (contact : Contact) in
                                     ContactThumbnailTodayCard(contact: contact)
-                                    .environment(\.managedObjectContext, self.managedObjectcontext)
+                                        .environment(\.managedObjectContext, self.managedObjectcontext)
                                 }
                                 
                             }
+                                .animation(.default)
                             .padding([.leading])
-                            //.animation(.default)
-                            
-                            
+                      
                         }
                         .padding([ .bottom])
                         
@@ -160,7 +201,7 @@ struct AddedContectView : View
                                 
                             }
                             .padding([.leading])
-                            //.animation(.default)
+                            .animation(.default)
                             
                             
                         }.padding([ .bottom])

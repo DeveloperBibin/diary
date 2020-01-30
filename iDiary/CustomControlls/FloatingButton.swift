@@ -11,7 +11,10 @@ import SwiftUI
 
 struct FloatingButton: View {
     
-    @ObservedObject var data : FloatButtonData
+   @Binding var onLocationButtonClicked : Bool
+   @Binding var onPersonButtonClicked : Bool
+   @Binding var onPhtotoButtonClicked : Bool
+   @Binding var onButtonClicked : Bool
     
     var body: some View {
         
@@ -23,7 +26,7 @@ struct FloatingButton: View {
                 {
                     
                     Button(action: {
-                        self.data.onLocationButtonClicked.toggle()
+                        self.onLocationButtonClicked.toggle()
                         print("Float - locationClicked")
                     }) {
                         Image(systemName: "location.circle.fill")
@@ -33,15 +36,15 @@ struct FloatingButton: View {
                     
                     
             }
-            .offset( x: self.data.onButtonClicked ? -180 : 0)
-            .opacity(self.data.onButtonClicked ? 1 : 0)
+            .offset( x: self.onButtonClicked ? -180 : 0)
+            .opacity(self.onButtonClicked ? 1 : 0)
             
             
             HStack
                 {
                     
                     Button(action: {
-                        self.data.onPersonButtonClicked.toggle()
+                        self.onPersonButtonClicked.toggle()
                     }) {
                         Image(systemName: "person.crop.circle.fill")
                             .font(.largeTitle)
@@ -54,8 +57,8 @@ struct FloatingButton: View {
                     
                     
             }
-            .offset( x: self.data.onButtonClicked ? -120 : 0)
-            .opacity(self.data.onButtonClicked ? 1 : 0)
+            .offset( x: self.onButtonClicked ? -120 : 0)
+            .opacity(self.onButtonClicked ? 1 : 0)
             
             
             
@@ -65,7 +68,7 @@ struct FloatingButton: View {
                     
                     Button(action: {
                         
-                        self.data.onPhtotoButtonClicked.toggle()
+                        self.onPhtotoButtonClicked.toggle()
                         print("Float - PhotoClicked")
                         
                         
@@ -83,8 +86,8 @@ struct FloatingButton: View {
                     
                     
             }
-            .offset( x: self.data.onButtonClicked ? -60 : 0)
-            .opacity(self.data.onButtonClicked ? 1 : 0)
+            .offset( x: self.onButtonClicked ? -60 : 0)
+            .opacity(self.onButtonClicked ? 1 : 0)
             
             
             
@@ -93,7 +96,7 @@ struct FloatingButton: View {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
                 
                 withAnimation(.spring()){
-                    self.data.onButtonClicked.toggle()}
+                    self.onButtonClicked.toggle()}
             }) {
                 Image(systemName: "plus.circle.fill")
                     
@@ -102,8 +105,8 @@ struct FloatingButton: View {
                     
                     .scaleEffect(1.4)
                     
-                    .rotationEffect(.degrees(self.data.onButtonClicked ? 225 : 90))
-                    .scaleEffect(self.data.onButtonClicked ? 1.2 : 1)
+                    .rotationEffect(.degrees(self.onButtonClicked ? 225 : 90))
+                    .scaleEffect(self.onButtonClicked ? 1.2 : 1)
             }
             
             
@@ -116,8 +119,8 @@ struct FloatingButton: View {
 }
 
 
-struct FloatingButton_Previews: PreviewProvider {
-    static var previews: some View {
-        FloatingButton(data : FloatButtonData())
-    }
-}
+//struct FloatingButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FloatingButton()
+//    }
+//}

@@ -61,16 +61,24 @@ struct navigationView : View
                                     self.todayCardIsShown.toggle()
                             }
                             
-                            if(self.diaries.dropFirst(1).count > 1)
+                            if(self.diaries.dropFirst(1).count > 0)
                             {
+                                AllEntriesTitle()
+                                    .padding(.top)
                                 ForEach(self.diaries.dropFirst(1))
                                 {
                                     (diary : Diary) in
                                     if !diary.isEmpty
-                                    {DiaryThumbnail(data: diary)}
+                                    {
+                                        NavigationLink(destination : EmptyView())
+                                        {DiaryThumbnail(data: diary)}
+                                        
+                                    }
                                     
                                 }.onDelete(perform: delete)
+                                     .padding(.trailing, 10)
                                     .listRowInsets(EdgeInsets())
+                                   
                             }
                             else
                             {
@@ -109,6 +117,24 @@ struct navigationView : View
     func delete(at offsets: IndexSet) {
         //Delete here
         print("Deleted")
+    }
+}
+
+struct AllEntriesTitle : View
+{
+    var body : some View
+    {
+        VStack( alignment : .leading,spacing : 10){
+        HStack{
+        Image(systemName : "list.dash")
+        .foregroundColor(blueGray400)
+        Text("All Entries")
+            .font(.subheadline)
+            .fontWeight(.bold)
+            .foregroundColor(blueGray400)
+        }
+        Divider()
+        }
     }
 }
 
