@@ -61,40 +61,36 @@ struct navigationView : View
                                     self.todayCardIsShown.toggle()
                             }
                             
-                            if(self.diaries.dropFirst(1).count > 0)
-                            {
                                 AllEntriesTitle()
                                     .padding(.top)
-                                ForEach(self.diaries.dropFirst(1))
+                                ForEach(self.diaries)
                                 {
                                     (diary : Diary) in
                                     if !diary.isEmpty
-                                    {
-                                        NavigationLink(destination : EmptyView())
+                                    {NavigationLink(destination : DiaryPage(data: diary, diaryItems: self.diaries))
                                         {DiaryThumbnail(data: diary)}
-                                
                                     }
-                                    
-                                }.onDelete(perform: delete)
-                                    .padding(.trailing, 10)
-                                    .listRowInsets(EdgeInsets())
-                            }
-                            else
-                            {
-                                EmptyIndication()
                                 
-                            }
+                                    
+                                    
+                                } .onDelete(perform: delete)
+                                .listRowInsets(EdgeInsets())
+                               
+                                    //.padding(.trailing, 10)
+                                   
+                          
                             
                     }
-              
-                }
-                .navigationBarTitle(Text("iDiary"))
+                }.navigationBarTitle(Text("iDiary"))
         }.background(EmptyView().sheet(isPresented: self.$todayCardIsShown, onDismiss: {
             
             do
             {
                 if self.managedObjectcontext.hasChanges && !self.diaries.first!.isEmpty
-                {try self.managedObjectcontext.save()
+                {
+                    
+                    
+                    try self.managedObjectcontext.save()
                     print("Saved")
                     return
                 }
@@ -131,13 +127,13 @@ struct AllEntriesTitle : View
         VStack( alignment : .leading,spacing : 10){
             HStack{
                 Image(systemName : "list.dash")
-                    .foregroundColor(blueGray400)
                 Text("All Entries")
-                    .font(.subheadline)
-                    .fontWeight(.bold)
-                    .foregroundColor(blueGray400)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                    .opacity(0.8)
             }
             Divider()
+                .padding(.bottom, 10)
         }
     }
 }

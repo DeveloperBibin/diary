@@ -154,3 +154,74 @@ func splitString (string : String) -> [String]
     
     
 }
+
+func dateDesc(date : Date) -> String  {
+    
+    var lastMentioned : String = ""
+    
+    if (date.isInToday)
+    { lastMentioned = "Today"}
+    else if (date.isInYesterday)
+    {lastMentioned = "Yesterday"}
+    else if (date.isInThisWeek)
+    {lastMentioned = "This Week"}
+    else if (date.isInThisMonth)
+    {lastMentioned = "This Month"}
+    else if (date.isInThisYear)
+    {lastMentioned = "This Year"}
+    else
+    {
+        
+        var components : DateComponents
+           {
+               let calendar = Calendar.current
+               let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+               return components
+           }
+        
+
+        var month : String
+        {
+            switch components.month {
+
+                case 1:
+                          return "January"
+                case 2:
+                          return "February"
+                case 3:
+                          return "March"
+                case 4:
+                          return "April"
+                case 5:
+                          return "May"
+                case 6:
+                          return "June"
+                case 7:
+                          return "July"
+                case 8:
+                          return "August"
+                case 9:
+                          return "September"
+                case 10:
+                          return "October"
+                case 11:
+                          return "November"
+                case 12:
+                          return "December"
+
+            default:
+                return ""
+            }
+
+        }
+
+        
+           
+        
+       lastMentioned = "\(month) \(components.day!), \(components.year!)"
+        
+    }
+    
+    
+    return lastMentioned
+}

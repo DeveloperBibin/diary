@@ -126,11 +126,17 @@ struct TodayCardThumbnail: View {
                 Text(self.data.title.isBlank ? "Dear Diary" : self.data.title)
                     .font(.headline)
                  .padding(.top, 6)
-                Text(self.data.entry)
+                if !(self.data.entry.isEmpty)
+                {Text(self.data.entry)
                     .font(.subheadline)
                     .fontWeight(.light)
                     .opacity(0.7)
                 .lineLimit(2)
+                }
+                else
+                {
+                    EmptyView()
+                }
                 
                 HStack(spacing : 10) {
 

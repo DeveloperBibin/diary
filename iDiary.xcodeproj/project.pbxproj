@@ -24,11 +24,17 @@
 		B54DB59223E28EA2001A5646 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DB59123E28EA2001A5646 /* ImagePicker.swift */; };
 		B54DB59423E29102001A5646 /* ImageAndCaptionAdder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DB59323E29102001A5646 /* ImageAndCaptionAdder.swift */; };
 		B54DB59623E2AE13001A5646 /* ImageThumbnailTodayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DB59523E2AE13001A5646 /* ImageThumbnailTodayCard.swift */; };
+		B5564B5523E2FD4F0067AFB8 /* DiaryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5564B5423E2FD4F0067AFB8 /* DiaryPage.swift */; };
+		B5564B5723E3196C0067AFB8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5564B5623E3196C0067AFB8 /* MapView.swift */; };
+		B557FD1323E5663A00239AA6 /* DiaryPageContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557FD1223E5663A00239AA6 /* DiaryPageContactView.swift */; };
+		B557FD1523E56B2000239AA6 /* ContactOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557FD1423E56B2000239AA6 /* ContactOverView.swift */; };
 		B587119623E1CA75001DE6D9 /* ContactsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587119523E1CA75001DE6D9 /* ContactsFetcher.swift */; };
 		B587119823E1CB89001DE6D9 /* ContactSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587119723E1CB89001DE6D9 /* ContactSearch.swift */; };
 		B587119A23E1CC09001DE6D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587119923E1CC09001DE6D9 /* Extensions.swift */; };
 		B587119C23E1CC9F001DE6D9 /* ContactRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587119B23E1CC9F001DE6D9 /* ContactRow.swift */; };
 		B587119E23E1E4F6001DE6D9 /* ContactThumbnailTodayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587119D23E1E4F6001DE6D9 /* ContactThumbnailTodayCard.swift */; };
+		B596067023EAD23A001EE331 /* LocatinOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B596066F23EAD23A001EE331 /* LocatinOverView.swift */; };
+		B596067223EAD508001EE331 /* LeftMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B596067123EAD508001EE331 /* LeftMapView.swift */; };
 		B5EF098D23E097F000EB5DEC /* TodayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF098C23E097F000EB5DEC /* TodayCard.swift */; };
 		B5EF099023E099A900EB5DEC /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF098F23E099A900EB5DEC /* TextView.swift */; };
 		B5FED25B23E019D4005D5F0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FED25A23E019D4005D5F0B /* AppDelegate.swift */; };
@@ -81,11 +87,17 @@
 		B54DB59123E28EA2001A5646 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B54DB59323E29102001A5646 /* ImageAndCaptionAdder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndCaptionAdder.swift; sourceTree = "<group>"; };
 		B54DB59523E2AE13001A5646 /* ImageThumbnailTodayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageThumbnailTodayCard.swift; sourceTree = "<group>"; };
+		B5564B5423E2FD4F0067AFB8 /* DiaryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPage.swift; sourceTree = "<group>"; };
+		B5564B5623E3196C0067AFB8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B557FD1223E5663A00239AA6 /* DiaryPageContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPageContactView.swift; sourceTree = "<group>"; };
+		B557FD1423E56B2000239AA6 /* ContactOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactOverView.swift; sourceTree = "<group>"; };
 		B587119523E1CA75001DE6D9 /* ContactsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFetcher.swift; sourceTree = "<group>"; };
 		B587119723E1CB89001DE6D9 /* ContactSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactSearch.swift; sourceTree = "<group>"; };
 		B587119923E1CC09001DE6D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B587119B23E1CC9F001DE6D9 /* ContactRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRow.swift; sourceTree = "<group>"; };
 		B587119D23E1E4F6001DE6D9 /* ContactThumbnailTodayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactThumbnailTodayCard.swift; sourceTree = "<group>"; };
+		B596066F23EAD23A001EE331 /* LocatinOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocatinOverView.swift; sourceTree = "<group>"; };
+		B596067123EAD508001EE331 /* LeftMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMapView.swift; sourceTree = "<group>"; };
 		B5EF098C23E097F000EB5DEC /* TodayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCard.swift; sourceTree = "<group>"; };
 		B5EF098F23E099A900EB5DEC /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		B5FED25723E019D4005D5F0B /* iDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +278,9 @@
 				B5EF098C23E097F000EB5DEC /* TodayCard.swift */,
 				B544C73923E16AA5009127F5 /* LocationSearch.swift */,
 				B587119723E1CB89001DE6D9 /* ContactSearch.swift */,
+				B5564B5423E2FD4F0067AFB8 /* DiaryPage.swift */,
+				B557FD1423E56B2000239AA6 /* ContactOverView.swift */,
+				B596066F23EAD23A001EE331 /* LocatinOverView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,6 +298,9 @@
 				B587119D23E1E4F6001DE6D9 /* ContactThumbnailTodayCard.swift */,
 				B54DB59323E29102001A5646 /* ImageAndCaptionAdder.swift */,
 				B54DB59523E2AE13001A5646 /* ImageThumbnailTodayCard.swift */,
+				B5564B5623E3196C0067AFB8 /* MapView.swift */,
+				B557FD1223E5663A00239AA6 /* DiaryPageContactView.swift */,
+				B596067123EAD508001EE331 /* LeftMapView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -420,17 +438,22 @@
 			files = (
 				B52B52A123E0292A005563F6 /* DiaryThumbnail.swift in Sources */,
 				B587119A23E1CC09001DE6D9 /* Extensions.swift in Sources */,
+				B596067023EAD23A001EE331 /* LocatinOverView.swift in Sources */,
 				B544C73C23E16AE3009127F5 /* FetchPlacesClass.swift in Sources */,
 				B544C73523E15287009127F5 /* FloatingButton.swift in Sources */,
 				B52B52A323E03959005563F6 /* TodayCardButton.swift in Sources */,
+				B596067223EAD508001EE331 /* LeftMapView.swift in Sources */,
+				B557FD1323E5663A00239AA6 /* DiaryPageContactView.swift in Sources */,
 				B541A03523E191B6009B79AA /* LocationThumbailTodayCard.swift in Sources */,
 				B52B52A623E03D6C005563F6 /* SiriShortCutsNames.swift in Sources */,
 				B5FED29323E021D4005D5F0B /* Photo.swift in Sources */,
 				B5FED29123E0214F005D5F0B /* Contact.swift in Sources */,
+				B5564B5723E3196C0067AFB8 /* MapView.swift in Sources */,
 				B544C73823E159D1009127F5 /* FloatButtonData.swift in Sources */,
 				B5FED29523E0224D005D5F0B /* Location.swift in Sources */,
 				B587119623E1CA75001DE6D9 /* ContactsFetcher.swift in Sources */,
 				B544C73A23E16AA5009127F5 /* LocationSearch.swift in Sources */,
+				B557FD1523E56B2000239AA6 /* ContactOverView.swift in Sources */,
 				B538B8D023E04103003598C2 /* OnAppearCheck.swift in Sources */,
 				B544C74223E16D21009127F5 /* PermissionDenied.swift in Sources */,
 				B544C74023E16CB3009127F5 /* LocationResultModel.swift in Sources */,
@@ -442,6 +465,7 @@
 				B5EF098D23E097F000EB5DEC /* TodayCard.swift in Sources */,
 				B5FED28F23E01EF0005D5F0B /* Diary.swift in Sources */,
 				B587119823E1CB89001DE6D9 /* ContactSearch.swift in Sources */,
+				B5564B5523E2FD4F0067AFB8 /* DiaryPage.swift in Sources */,
 				B5FED26023E019D4005D5F0B /* iDiary.xcdatamodeld in Sources */,
 				B544C73E23E16B9A009127F5 /* LocationManager.swift in Sources */,
 				B54DB59623E2AE13001A5646 /* ImageThumbnailTodayCard.swift in Sources */,

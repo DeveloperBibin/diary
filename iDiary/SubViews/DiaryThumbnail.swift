@@ -85,85 +85,82 @@ struct DiaryThumbnail: View {
     
     
     var body: some View {
-        
-        VStack(alignment : .leading, spacing : 5) {
+        VStack(alignment : .leading){
+            Text("\(self.dateDesc)")
+                .font(.system(size: 10))
+            .fontWeight(.light)
+           // .padding(.top, 5)
+            .offset(y : -2.5)
             
-         
-            HStack(alignment : .center) {
+            Text("\(self.data.title.isBlank ? "Dear Diary" : self.data.title)")
+                .font(.subheadline)
+                .foregroundColor(.primary)
+                .padding(.top, 5)
             
+            if !(self.data.entry.isBlank)
+            {
                 
-                //Text("Not an good day to start")
-                Text(self.data.title.isBlank ? "Dear Diary" : self.data.title)
-                    .foregroundColor(.primary)
-                    .font(.system(.headline, design: .rounded))
-  
-
-                 Spacer()
-                VStack {
-                            // Text("December 13")
-                    Text("\(dateDesc)")
-                                 .font(.system(.caption, design: .rounded))
-                                 .shadow(radius: 0.1)
-                         }
-
-                
-               
+                Text("\(data.entry)")
+                .font(.caption)
+                .fontWeight(.light)
+                .lineLimit(2)
+                .padding(.top, 10)
+                .foregroundColor(Color(.secondaryLabel))
             }
-            
+            else
+            {EmptyView()}
+            HStack(alignment : .bottom)
+            {
+                VStack(alignment : .leading){
+                    
+                    HStack{
+                 
+                        if !(self.data.contacts.isEmpty)
+                        {
+                            Image(systemName : "person.crop.circle.fill.badge.checkmark")
+                           .font(.caption)
+                           .foregroundColor(.secondary)
+                        }
+                        else
+                        {EmptyView()}
+
+                        if !(self.data.images.isEmpty)
+                        {Image(systemName : "photo")
+                           .font(.caption)
+                           .foregroundColor(.secondary)
+                        }
+                        else
+                        {EmptyView()}
+                   
+                        if !(self.data.locations.isEmpty)
+                        {Image(systemName : "map")
+                           .font(.caption)
+                           .foregroundColor(.secondary)
+                        }
+                        else
+                        {EmptyView()}
+                        Spacer()
+                   
+               }
+                
+                }
+                
+                Spacer()
+                Image(systemName : self.data.isFav ? "heart.circle.fill" : "heart.circle")
+                  .foregroundColor(.secondary)
+                
+                
+            }
            
             
-                
-          
-            if !(self.data.entry.isEmpty)
-            {Text(self.data.entry)
-               // Text(content)
-                    .font(.system(.subheadline, design : .rounded))
-                .fontWeight(.light)
-                .foregroundColor(.primary)
-                    .multilineTextAlignment(.leading)
-                    .lineLimit(2)
-            }
-            
-            HStack(spacing : 10) {
-                
-                if !(self.data.images.isEmpty)
-                {ImageIcon().padding(4)
-                .background(Color(.tertiarySystemGroupedBackground))
-                .cornerRadius(5)}
-                if !(self.data.contacts.isEmpty)
-                {ContactIcon().padding(4)
-                .background(Color(.tertiarySystemGroupedBackground))
-                .cornerRadius(5)}
-                if !(self.data.locations.isEmpty)
-                {LocationIcon().padding(4)
-                .background(Color(.tertiarySystemGroupedBackground))
-                .cornerRadius(5)}
-            }
-            .padding(.top, 4)
-            
-    Divider()
-        .padding(.top, 5)
-        }.padding()
+            Divider()
+                .padding([.bottom,.top], 10)
+        }
+        .padding([.leading, .trailing])
+        
+        
 }
 }
-
-
-
-//struct DiaryThumbnail_Previews: PreviewProvider {
-//    static var previews: some View {
-//
-//        DiaryThumbnail(data: DiaryItem())
-//    }
-//}
-//
-
-
-
-
-
-
-
-
 
 
 
