@@ -89,8 +89,9 @@ struct DiaryThumbnail: View {
             Text("\(self.dateDesc)")
                 .font(.system(size: 10))
             .fontWeight(.light)
+        
            // .padding(.top, 5)
-            .offset(y : -2.5)
+            //.offset(y : -2.5)
             
             Text("\(self.data.title.isBlank ? "Dear Diary" : self.data.title)")
                 .font(.subheadline)
@@ -105,7 +106,7 @@ struct DiaryThumbnail: View {
                 .fontWeight(.light)
                 .lineLimit(2)
                 .padding(.top, 10)
-                .foregroundColor(Color(.secondaryLabel))
+               // .foregroundColor(Color(.secondaryLabel))
             }
             else
             {EmptyView()}
@@ -119,7 +120,7 @@ struct DiaryThumbnail: View {
                         {
                             Image(systemName : "person.crop.circle.fill.badge.checkmark")
                            .font(.caption)
-                           .foregroundColor(.secondary)
+                           //.foregroundColor(Blue50400)
                         }
                         else
                         {EmptyView()}
@@ -127,7 +128,7 @@ struct DiaryThumbnail: View {
                         if !(self.data.images.isEmpty)
                         {Image(systemName : "photo")
                            .font(.caption)
-                           .foregroundColor(.secondary)
+                           //.foregroundColor(Blue50400)
                         }
                         else
                         {EmptyView()}
@@ -135,7 +136,7 @@ struct DiaryThumbnail: View {
                         if !(self.data.locations.isEmpty)
                         {Image(systemName : "map")
                            .font(.caption)
-                           .foregroundColor(.secondary)
+                           //.foregroundColor(Blue50400)
                         }
                         else
                         {EmptyView()}
@@ -147,7 +148,7 @@ struct DiaryThumbnail: View {
                 
                 Spacer()
                 Image(systemName : self.data.isFav ? "heart.circle.fill" : "heart.circle")
-                  .foregroundColor(.secondary)
+                    .foregroundColor(.secondary)
                 
                 
             }

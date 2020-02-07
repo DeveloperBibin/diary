@@ -198,13 +198,14 @@ struct DiaryPage: View {
 struct favouriteButton : View
 {
     @Binding var isFav : Bool
+    @Environment(\.managedObjectContext) var managedObjectcontext
     
     
     var body : some View
     {
         Button(action : {
-            
             self.isFav.toggle()
+            
         })
         {
             HStack

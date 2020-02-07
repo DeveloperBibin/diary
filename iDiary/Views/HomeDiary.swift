@@ -14,6 +14,8 @@ struct HomeDiary: View {
     @Environment(\.managedObjectContext) var managedObjectcontext
     @FetchRequest(fetchRequest: Diary.getAllItems()) var diaries : FetchedResults<Diary>
     
+    @State var showSearchView : Bool = false
+    
     
     init() {
         
@@ -23,13 +25,28 @@ struct HomeDiary: View {
     
     var body: some View {
         
+        NavigationView{
         VStack{
-            
-            
-            navigationView(diaries: self.diaries)
-                .navigationBarTitle(Text("iDiary"))
+            if !self.showSearchView
+            {navigationView(diaries: self.diaries, showSearchView: self.$showSearchView)
+                .transition(.toLeft)
+                .animation(.default)
+            }
+            else
+            {SearchViiew(diaries: self.diaries)
+                .transition(.toRight)
+                .animation(.default)
+            }
         }
-        
+        .navigationBarTitle(self.showSearchView ? Text("Search") : Text("iDiary"), displayMode: self.showSearchView ? .inline : .inline)
+                .navigationBarItems(trailing: Button(action: {
+                    
+                    self.showSearchView.toggle()}) {
+                    Image(systemName : self.showSearchView ? "xmark.circle.fill" : "magnifyingglass.circle")
+                    .font(.headline)
+                        .animation(.default).padding()
+            })
+        }
         
     }
 }
@@ -46,10 +63,9 @@ struct navigationView : View
     @State var todayCardIsShown : Bool = false
     @Environment(\.managedObjectContext) var managedObjectcontext
     var diaries : FetchedResults<Diary>
+    @Binding var showSearchView : Bool
     var body : some View{
-        
-        NavigationView
-            {
+    
                 
                 VStack{
                     
@@ -61,28 +77,28 @@ struct navigationView : View
                                     self.todayCardIsShown.toggle()
                             }
                             
-                                AllEntriesTitle()
-                                    .padding(.top)
-                                ForEach(self.diaries)
-                                {
-                                    (diary : Diary) in
-                                    if !diary.isEmpty
-                                    {NavigationLink(destination : DiaryPage(data: diary, diaryItems: self.diaries))
-                                        {DiaryThumbnail(data: diary)}
-                                    }
+                            ListTitle(image: .constant("list.dash"), title: .constant("All Entries"))
+                                .padding(.top)
+                            ForEach(self.diaries)
+                            {
+                                (diary : Diary) in
+                                if !diary.isEmpty
+                                {NavigationLink(destination : DiaryPage(data: diary, diaryItems: self.diaries))
+                                {DiaryThumbnail(data: diary)}
+                                }
                                 
-                                    
-                                    
-                                } .onDelete(perform: delete)
+                                
+                                
+                            } .onDelete(perform: delete)
                                 .listRowInsets(EdgeInsets())
-                               
-                                    //.padding(.trailing, 10)
-                                   
-                          
+                            
+                            //.padding(.trailing, 10)
+                            
+                            
                             
                     }
-                }.navigationBarTitle(Text("iDiary"))
-        }.background(EmptyView().sheet(isPresented: self.$todayCardIsShown, onDismiss: {
+                }
+        .background(EmptyView().sheet(isPresented: self.$todayCardIsShown, onDismiss: {
             
             do
             {
@@ -120,17 +136,22 @@ struct navigationView : View
     }
 }
 
-struct AllEntriesTitle : View
+struct ListTitle : View
 {
+    
+    @Binding var image : String
+    @Binding var title : String
     var body : some View
     {
         VStack( alignment : .leading,spacing : 10){
             HStack{
-                Image(systemName : "list.dash")
-                Text("All Entries")
-                    .font(.headline)
+                Image(systemName : self.image)
+                 .font(.caption)
+                Text("\(title.uppercased())")
+                    .font(.caption)
+                    .fontWeight(.bold)
                     .foregroundColor(.primary)
-                    .opacity(0.8)
+                    //.opacity(0.9)
             }
             Divider()
                 .padding(.bottom, 10)
@@ -140,6 +161,7 @@ struct AllEntriesTitle : View
 
 struct EmptyIndication : View
 {
+    var caption : String = "Past diaries will appear here."
     var body : some View
     {
         HStack{
@@ -147,9 +169,9 @@ struct EmptyIndication : View
             VStack{
                 Spacer()
                     .frame(height : UIScreen.main.bounds.size.height / 10)
-                Image("empty").resizable()
+                Image("emptycal").resizable()
                     .frame(width :250, height : 250)
-                Text("Past diaries will appear here.")
+                Text("\(self.caption)")
                     .font(.headline)
                     .fontWeight(.bold)
                     .foregroundColor(blueGray400)

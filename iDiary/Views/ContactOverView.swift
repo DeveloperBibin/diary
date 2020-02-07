@@ -30,7 +30,7 @@ struct ContactOverView: View {
                 .listRowInsets(EdgeInsets())
                 
                
-                AllEntriesTitle()
+                ListTitle(image: .constant("list.dash"), title: .constant("All Entries"))
                     .padding(.top)
                 ForEach(self.diaries.filter({$0.contacts.contains(where: {$0.id == self.contact.id})}))
                 {
@@ -101,7 +101,7 @@ struct titleBarView : View
                             
                              }.frame(width : 100, height : 100)
                             .background(Color(.quaternarySystemFill))
-                          .overlay(Circle().stroke(Blue50400, lineWidth : 2))
+                            .overlay(Circle().stroke(Color(.orange), lineWidth : 2))
                               .clipShape(Circle())
                              Spacer()
                             TextContentView(mentions: "\(self.mention)", lastMentioned: self.lastMentioned)
@@ -127,7 +127,7 @@ struct TextContentView : View
                 Text("\(mentions)")
                     .font(.headline)
                     .fontWeight(.bold)
-                .foregroundColor(.blue)
+                .foregroundColor(.orange)
                   
                 
                 Text("Mentions")
@@ -140,7 +140,7 @@ struct TextContentView : View
                 Text("\(lastMentioned)")
                     .font(.headline)
                 .fontWeight(.bold)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.orange)
                
                 Text("Last mentioned")
                 .font(.caption)

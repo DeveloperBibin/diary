@@ -18,6 +18,30 @@ extension AnyTransition{
     }
 }
 
+extension AnyTransition{
+    static var toLeft: AnyTransition {
+        let insertion = AnyTransition.move(edge: .leading)
+            .combined(with: .opacity)
+        let removal = AnyTransition.move(edge: .leading)
+            .combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+}
+
+extension AnyTransition{
+    static var toRight: AnyTransition {
+        let insertion = AnyTransition.move(edge: .trailing)
+            .combined(with: .opacity)
+        let removal = AnyTransition.move(edge: .trailing)
+            .combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+}
+
+
+
+
+
 extension Date {
 
     func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
@@ -225,3 +249,21 @@ func dateDesc(date : Date) -> String  {
     
     return lastMentioned
 }
+
+
+extension Array {
+    func unique<T:Hashable>(map: ((Element) -> (T)))  -> [Element] {
+        var set = Set<T>() //the unique list kept in a Set for fast retrieval
+        var arrayOrdered = [Element]() //keeping the unique list of elements but ordered
+        for value in self {
+            if !set.contains(map(value)) {
+                set.insert(map(value))
+                arrayOrdered.append(value)
+            }
+        }
+
+        return arrayOrdered
+    }
+}
+
+

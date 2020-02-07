@@ -26,7 +26,7 @@ struct ContactRow: View {
                     .aspectRatio(contentMode: ContentMode.fill)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color(.systemYellow), lineWidth: 1))
-                    .frame(width : 40, height : 40)
+                    .frame(width : 25, height : 25)
             }
             else
             {
@@ -36,16 +36,16 @@ struct ContactRow: View {
                             .overlay(Circle().stroke(Color(.systemYellow), lineWidth: 1))
                         
                         Text("\(name.first?.description ?? "")")
-                            .font(.system(.title, design : .rounded))
+                            .font(.system(.headline, design : .rounded))
                             .fontWeight(.bold)
                             .foregroundColor(Color(.secondaryLabel))
                         
                 }
-                .frame(width : 40, height : 40)
+                .frame(width : 25, height : 25)
             }
             
             Text(self.name)
-                .font(.system(.headline, design : .rounded))
+                .font(.system(.subheadline, design : .rounded))
                 .foregroundColor(Color(.label))
                 .lineLimit(1)
                 .padding([.leading, .trailing], 5)
@@ -53,7 +53,7 @@ struct ContactRow: View {
             Spacer()
             
             
-        }
+            }.contentShape(Rectangle())
             
         .padding([.bottom, .top], 5)
         

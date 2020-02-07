@@ -26,10 +26,10 @@ struct LocationResultModel: View {
                     VStack(alignment : .leading) {
                         Text(title)
                             
-                            .font(.headline)
+                            .font(.subheadline)
                         Text(desc)
                             .lineLimit(1)
-                            .font(.subheadline)
+                            .font(.caption)
                             .foregroundColor(Color.secondary)
                             .padding(.top, 3)
                         

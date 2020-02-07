@@ -19,15 +19,16 @@ struct LocatinOverView: View {
         NavigationView {
             List() {
                 
-                ZStack{
+                
                     
                     LeftMapView(location: self.location)
                         .overlay(LocationTextOverlay(count: self.mentions, dateDesc: self.$lastMentioned))
                         .listRowInsets(EdgeInsets())
-                }
+                        .frame(height : 150)
                 
                 
-                AllEntriesTitle()
+                
+                ListTitle(image: .constant("list.dash"), title: .constant("All Entries"))
                     .padding(.top)
                 ForEach(self.diaries.filter({$0.locations.contains(where: {$0.id == self.location.id})}))
                 {
