@@ -147,8 +147,10 @@ struct DiaryThumbnail: View {
                 }
                 
                 Spacer()
-                Image(systemName : self.data.isFav ? "heart.circle.fill" : "heart.circle")
-                    .foregroundColor(.secondary)
+                if(self.data.isFav)
+                {Image(systemName :  "heart.circle.fill")
+                    .foregroundColor(Red50A200)
+                }
                 
                 
             }

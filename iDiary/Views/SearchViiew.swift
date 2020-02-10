@@ -17,7 +17,7 @@ struct SearchViiew: View {
     
     @State var frequentLocations : [Location] = []
     @State var filteredLocations : [Location] = []
-    @State var selectedSearchOption : Int = 0
+    @State var selectedSearchOption : Int = 1
     
     @State var searchOptions = ["pencil","person.crop.circle","mappin.and.ellipse" ]
     
@@ -61,6 +61,8 @@ struct FavSearchView : View{
     @State var image = "text.badge.star"
     var diaries : FetchedResults<Diary>
     @State var filteredList : [Diary] = []
+    @State var isLoading : Bool = true
+    
     var body : some View
     {
         let binding = Binding<String>(get: {self.text}, set: {
@@ -75,6 +77,7 @@ struct FavSearchView : View{
             
             SearchBar(text: binding, placeHolder: "Search Entries")
             Spacer().frame(height : 70)
+            if !self.isLoading{
             List{
                 
                 if !self.filteredList.isEmpty
@@ -100,10 +103,18 @@ struct FavSearchView : View{
                 
                 
             }
-        }
-         .onAppear()
+            }
+            else
             {
-                self.filteredList = self.diaries.filter({$0.isFav})
+                Loading()
+            }
+                   
+        }.onAppear()
+            {
+                DispatchQueue.global(qos: .background).async
+                {self.filteredList = self.diaries.filter({$0.isFav})
+                    self.isLoading = false
+                }
         }
         
         
@@ -220,15 +231,7 @@ struct ContactsSearchView : View
                 }
                 else
                 {
-                    VStack
-                                           {
-                                            HStack{Spacer()}
-                                               Spacer().frame(height : UIScreen.main.bounds.size.height / 4)
-                                               Text("Loading...")
-                                                   .font(.subheadline)
-                                                   .foregroundColor(.secondary)
-                                               Spacer()
-                                       }
+                    Loading()
                 }
         }.animation(.default)
             .onAppear()
@@ -265,7 +268,21 @@ struct ContactsSearchView : View
 }
 
 
-
+struct Loading : View
+{
+    var body : some View
+    {
+        VStack
+            {
+             HStack{Spacer()}
+                Spacer().frame(height : UIScreen.main.bounds.size.height / 4)
+                Text("Loading...")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                Spacer()
+        }
+    }
+}
 struct LocationSearchView : View
 {
     

@@ -16,6 +16,7 @@ let blueGray400 = Color(UIColor(hexString: "#78909C"))
 let Red50400 = Color(UIColor(hexString: "#EF5350"))
 let Red50200 = Color(UIColor(hexString: "#EF9A9A"))
 let Red50 = Color(UIColor(hexString: "#FFEBEE"))
+let Red50A200 = Color(UIColor(hexString: "#FF5252"))
 
 let Blue50400 = Color(UIColor(hexString: "#42A5F5"))
 let Blue50 = Color(UIColor(hexString: "#E3F2FD"))

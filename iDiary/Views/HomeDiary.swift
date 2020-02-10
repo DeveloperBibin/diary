@@ -15,7 +15,9 @@ struct HomeDiary: View {
     @FetchRequest(fetchRequest: Diary.getAllItems()) var diaries : FetchedResults<Diary>
     
     @State var showSearchView : Bool = false
-    
+    @State var settingsPageShown : Bool = false
+    @State var selectedViewOptin : Int = 0
+    @State var viewOptions = [ "list.bullet","calendar"]
     
     init() {
         
@@ -26,26 +28,72 @@ struct HomeDiary: View {
     var body: some View {
         
         NavigationView{
-        VStack{
-            if !self.showSearchView
-            {navigationView(diaries: self.diaries, showSearchView: self.$showSearchView)
-                .transition(.toLeft)
-                .animation(.default)
-            }
-            else
-            {SearchViiew(diaries: self.diaries)
-                .transition(.toRight)
-                .animation(.default)
-            }
-        }
-        .navigationBarTitle(self.showSearchView ? Text("Search") : Text("iDiary"), displayMode: self.showSearchView ? .inline : .inline)
-                .navigationBarItems(trailing: Button(action: {
-                    
-                    self.showSearchView.toggle()}) {
-                    Image(systemName : self.showSearchView ? "xmark.circle.fill" : "magnifyingglass.circle")
-                    .font(.headline)
-                        .animation(.default).padding()
+            VStack{
+                if !self.showSearchView
+                {
+                    VStack{
+                        if selectedViewOptin == 0
+                        {
+                            navigationView(diaries: self.diaries, showSearchView: self.$showSearchView)
+                                .transition(.move(edge: .leading))
+                                .animation(.default)
+                            
+                        }
+                        else
+                        {
+                            HomeCalendar(diaries : self.diaries)
+                            .transition(.toRight)
+                            .animation(.default)
+                        }
+                    }
+                    .transition(.move(edge: .leading))
+                    .animation(.default)
+                    .overlay(VStack
+                        {
+                            Spacer()
+                            HStack{
+                                Spacer()
+                            Picker(selection: $selectedViewOptin, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
+                                ForEach(0 ..< self.viewOptions.count)
+                                {
+                                    Image(systemName: self.viewOptions[$0])
+                                    
+                                }
+                            }
+                            .pickerStyle(SegmentedPickerStyle())
+                            .shadow(radius: 5)
+                           
+                                Spacer()
+                            } .padding()
+                            
+                    })
+                }
+                else
+                {
+                    SearchViiew(diaries: self.diaries)
+                    .transition(.toRight)
+                    .animation(.default)
+                }
+            }.background(EmptyView() .sheet(isPresented: self.$settingsPageShown)
+            {
+                SettingsView(diaries: self.diaries)
             })
+                
+                .navigationBarTitle(self.showSearchView ? Text("Search") : Text("iDiary"), displayMode: .inline)
+                .navigationBarItems(leading:
+                    Button(action : {self.settingsPageShown.toggle()})
+                    {
+                        Image(systemName : "person.crop.circle.fill")
+                            .font(.headline)
+                            .animation(.default).padding()
+                    }
+                    ,trailing: Button(action: {
+                        
+                        self.showSearchView.toggle()}) {
+                            Image(systemName : self.showSearchView ? "xmark.circle.fill" : "magnifyingglass.circle")
+                                .font(.headline)
+                                .animation(.default).padding()
+                })
         }
         
     }
@@ -65,39 +113,39 @@ struct navigationView : View
     var diaries : FetchedResults<Diary>
     @Binding var showSearchView : Bool
     var body : some View{
-    
-                
-                VStack{
+        
+        
+        VStack{
+            
+            List
+                {
                     
-                    List
-                        {
-                            
-                            TodayCardThumbnail(data: self.diaries.first!)
-                                .onTapGesture {
-                                    self.todayCardIsShown.toggle()
-                            }
-                            
-                            ListTitle(image: .constant("list.dash"), title: .constant("All Entries"))
-                                .padding(.top)
-                            ForEach(self.diaries)
-                            {
-                                (diary : Diary) in
-                                if !diary.isEmpty
-                                {NavigationLink(destination : DiaryPage(data: diary, diaryItems: self.diaries))
-                                {DiaryThumbnail(data: diary)}
-                                }
-                                
-                                
-                                
-                            } .onDelete(perform: delete)
-                                .listRowInsets(EdgeInsets())
-                            
-                            //.padding(.trailing, 10)
-                            
-                            
-                            
+                    TodayCardThumbnail(data: self.diaries.first!)
+                        .onTapGesture {
+                            self.todayCardIsShown.toggle()
                     }
-                }
+                    
+                    ListTitle(image: .constant("list.dash"), title: .constant("All Entries"))
+                        .padding(.top)
+                    ForEach(self.diaries)
+                    {
+                        (diary : Diary) in
+                        if !diary.isEmpty
+                        {NavigationLink(destination : DiaryPage(data: diary, diaryItems: self.diaries))
+                        {DiaryThumbnail(data: diary)}
+                        }
+                        
+                        
+                        
+                    } .onDelete(perform: delete)
+                        .listRowInsets(EdgeInsets())
+                    
+                    //.padding(.trailing, 10)
+                    
+                    
+                    
+            }
+        }
         .background(EmptyView().sheet(isPresented: self.$todayCardIsShown, onDismiss: {
             
             do
@@ -146,12 +194,12 @@ struct ListTitle : View
         VStack( alignment : .leading,spacing : 10){
             HStack{
                 Image(systemName : self.image)
-                 .font(.caption)
+                    .font(.caption)
                 Text("\(title.uppercased())")
                     .font(.caption)
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
-                    //.opacity(0.9)
+                //.opacity(0.9)
             }
             Divider()
                 .padding(.bottom, 10)
@@ -178,6 +226,30 @@ struct EmptyIndication : View
             }
             Spacer()
         }
+    }
+}
+
+struct EmptyIndicationSmall: View
+{
+    var caption : String = ""
+    var body : some View
+    {
+        HStack{
+                   Spacer()
+                   VStack{
+                       Spacer()
+                          
+                       Image("emptycal").resizable()
+                           .frame(width :150, height : 150)
+                       Text("\(self.caption)")
+                           .font(.headline)
+                           .fontWeight(.bold)
+                           .foregroundColor(blueGray400)
+                    Spacer()
+                   }
+                   Spacer()
+               }
+        
     }
 }
 func CreteSSCEntryDiary()
