@@ -42,8 +42,9 @@ struct HomeDiary: View {
                         else
                         {
                             HomeCalendar(diaries : self.diaries)
-                            .transition(.toRight)
-                            .animation(.default)
+                                .transition(.toRight)
+                                .animation(.default)
+                            
                         }
                     }
                     .transition(.move(edge: .leading))
@@ -53,16 +54,16 @@ struct HomeDiary: View {
                             Spacer()
                             HStack{
                                 Spacer()
-                            Picker(selection: $selectedViewOptin, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
-                                ForEach(0 ..< self.viewOptions.count)
-                                {
-                                    Image(systemName: self.viewOptions[$0])
-                                    
+                                Picker(selection: $selectedViewOptin, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
+                                    ForEach(0 ..< self.viewOptions.count)
+                                    {
+                                        Image(systemName: self.viewOptions[$0])
+                                        
+                                    }
                                 }
-                            }
-                            .pickerStyle(SegmentedPickerStyle())
-                            .shadow(radius: 5)
-                           
+                                .pickerStyle(SegmentedPickerStyle())
+                                
+                                
                                 Spacer()
                             } .padding()
                             
@@ -71,8 +72,9 @@ struct HomeDiary: View {
                 else
                 {
                     SearchViiew(diaries: self.diaries)
-                    .transition(.toRight)
-                    .animation(.default)
+                        .transition(.toRight)
+                        .animation(.default)
+                    
                 }
             }.background(EmptyView() .sheet(isPresented: self.$settingsPageShown)
             {
@@ -112,6 +114,9 @@ struct navigationView : View
     @Environment(\.managedObjectContext) var managedObjectcontext
     var diaries : FetchedResults<Diary>
     @Binding var showSearchView : Bool
+    @State var weekNumber : Double = 0
+    @State var dayNumber : Int = 0
+    
     var body : some View{
         
         
@@ -120,31 +125,59 @@ struct navigationView : View
             List
                 {
                     
-                    TodayCardThumbnail(data: self.diaries.first!)
-                        .onTapGesture {
-                            self.todayCardIsShown.toggle()
-                    }
+                    ListTitle(image: .constant("flame.fill"), title: .constant("Streaks"))
+                        .padding(.top)
                     
-                    ListTitle(image: .constant("list.dash"), title: .constant("All Entries"))
+                    HomeDiaryStreakView(weekNumber: self.$weekNumber, dayNumber: self.$dayNumber)
+                        .frame(height : UIScreen.main.bounds.size.height / 6)
+                       // .padding(.top, 10)
+                       
+                    
+                    
+                    
+                    ListTitle(image: .constant("list.dash"), title: .constant("Diary Entries"))
                         .padding(.top)
                     ForEach(self.diaries)
                     {
+                        
                         (diary : Diary) in
+                        if diary.date.isInToday
+                        {
+                            TodayCardThumbnail(data: self.diaries.first!)
+                                .onTapGesture {
+                                    self.todayCardIsShown.toggle()
+                            }
+                            .padding([.trailing, .leading], 8)
+                            Divider().padding([.trailing, .leading], 8)
+                           // .padding([ .bottom], 12)
+                        }
+                        else
+                        {
                         if !diary.isEmpty
                         {NavigationLink(destination : DiaryPage(data: diary, diaryItems: self.diaries))
-                        {DiaryThumbnail(data: diary)}
+                        {DiaryThumbnail(data: diary)
+                            
+                            }
+                        }
                         }
                         
                         
                         
                     } .onDelete(perform: delete)
-                        .listRowInsets(EdgeInsets())
+                    .listRowInsets(EdgeInsets())
+                    
                     
                     //.padding(.trailing, 10)
                     
                     
                     
             }
+            .onAppear()
+                                       {
+                                    self.updateStreakValues()
+                                        
+                                      }
+                               
         }
         .background(EmptyView().sheet(isPresented: self.$todayCardIsShown, onDismiss: {
             
@@ -156,12 +189,14 @@ struct navigationView : View
                     
                     try self.managedObjectcontext.save()
                     print("Saved")
+                    self.updateStreakValues()
                     return
                 }
                 
                 if self.diaries.first!.isEmpty && !(self.diaries.first?.objectID.isTemporaryID)! && self.managedObjectcontext.hasChanges
                 {
                     try self.managedObjectcontext.save()
+                    self.updateStreakValues()
                     print("Saved")
                 }
             }
@@ -179,8 +214,79 @@ struct navigationView : View
     }
     
     func delete(at offsets: IndexSet) {
-        //Delete here
-        print("Deleted")
+        
+        let index = offsets.first!
+        let listItem = self.diaries[index]
+        if listItem == self.diaries.first
+        {
+            self.emptyFirstItem()
+            self.saveDiaryToCoreData()
+            self.updateStreakValues()
+        }
+        else
+        {
+        self.deleteDiaryItem(item: listItem)
+        }
+        
+    }
+    
+    func emptyFirstItem()
+    {
+        guard let diary = self.diaries.first else {return}
+        diary.title = ""
+        diary.entry = ""
+        diary.contacts = Set<Contact>()
+        diary.locations = Set<Location>()
+        diary.images = Set<Photo>()
+        diary.isFav = false
+    }
+    
+    func deleteDiaryItem(item : Diary)
+    {
+        self.managedObjectcontext.delete(item)
+        self.saveDiaryToCoreData()
+        self.updateStreakValues()
+        
+    }
+    func saveDiaryToCoreData(){
+    do
+    {
+    try self.managedObjectcontext.save()
+    }
+    catch let error as NSError
+    {
+    print("Error \(error)")
+    }
+    }
+    
+    func updateStreakValues()
+    {
+        DispatchQueue.global(qos: .background).async {
+            self.weekNumber =  Double(self.diaries.filter({!$0.isEmpty && $0.date.isInSameWeek(date: Date())}).count)
+                   
+                   var tempItem = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+                   
+                   self.dayNumber = 0
+                   
+                  
+                       for item in self.diaries
+                             {
+                                 tempItem = Calendar.current.date(byAdding: .day, value: -1, to: tempItem!)!
+                                 if item.date.isInSameDay(date: tempItem!) && !item.isEmpty
+                                 {
+                                   
+                                       self.dayNumber += 1
+                                       tempItem = item.date
+                                       print("Here \(self.dayNumber) \(item.date) \(item.isEmpty)")
+                                 }
+                                 else
+                                 {return}
+                             }
+                   
+        }
+       
+      
+        //self.dayNumber = self.diaries.
     }
 }
 
@@ -194,13 +300,15 @@ struct ListTitle : View
         VStack( alignment : .leading,spacing : 10){
             HStack{
                 Image(systemName : self.image)
-                    .font(.caption)
+                    .font(.callout)
+                    .foregroundColor(.secondary)
                 Text("\(title.uppercased())")
-                    .font(.caption)
+                    .font(.system(.callout, design: .rounded))
                     .fontWeight(.bold)
-                    .foregroundColor(.primary)
+                    .foregroundColor(.secondary)
                 //.opacity(0.9)
             }
+            
             Divider()
                 .padding(.bottom, 10)
         }
@@ -235,20 +343,20 @@ struct EmptyIndicationSmall: View
     var body : some View
     {
         HStack{
-                   Spacer()
-                   VStack{
-                       Spacer()
-                          
-                       Image("emptycal").resizable()
-                           .frame(width :150, height : 150)
-                       Text("\(self.caption)")
-                           .font(.headline)
-                           .fontWeight(.bold)
-                           .foregroundColor(blueGray400)
-                    Spacer()
-                   }
-                   Spacer()
-               }
+            Spacer()
+            VStack{
+                Spacer()
+                
+                Image("emptycal").resizable()
+                    .frame(width :150, height : 150)
+                Text("\(self.caption)")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(blueGray400)
+                Spacer()
+            }
+            Spacer()
+        }
         
     }
 }

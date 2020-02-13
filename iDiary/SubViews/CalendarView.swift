@@ -24,17 +24,18 @@ struct CalendarView : View{
     var mon : [Int : [Int]] = [:]
     var months = ["January", "February", "March","April","May","June","July","August","September","October","November","December"]
     @Binding var clickedDate : Date
+    var onSelected : (Date) -> ()
     //var daysInMonth : [Int]
     
-    init(monthIndex : Int, geo : GeometryProxy, mdates : Binding<[Int]>, clickedDate : Binding<Date>) {
-        
-        
-        
+    init(monthIndex : Int, geo : GeometryProxy, mdates : Binding<[Int]>, clickedDate : Binding<Date>, onSeleted : @escaping (Date) -> Void) {
+   
         // self._periodDates = dates
         self._clickedDate = clickedDate
         self.geo = geo
         self.index = monthIndex
         self._mPeriodDates = mdates
+        self.onSelected = onSeleted
+        
         let date = calendar.date(byAdding: .month, value: monthIndex, to: Date())
         var daysInMonth : [Int]
         {
@@ -98,16 +99,23 @@ struct CalendarView : View{
                                             .font(.headline)
                                             .fontWeight(.light)
                                         .layoutPriority(1)
+                                        .fixedSize()
                                             
                                             
                                             .onTapGesture {
                                                 
-                                                print("helo")
+                                                if self.mPeriodDates.contains(item)
+                                                {
+                                                    print("helo")
                                                 var tempCompo = self.compo
-                                                tempCompo.day = item + 1
+                                                tempCompo.day = item
                                                 let date = self.calendar.date(from: tempCompo)
                                                 
                                                 self.clickedDate = date!
+                                                self.onSelected(date!)
+                                                    
+                                                }
+                                                
                                                 
                                         }
                                         

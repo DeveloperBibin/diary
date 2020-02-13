@@ -15,80 +15,86 @@ struct DiaryThumbnail: View {
     
     //@Binding var fav : Bool
     
-    var components : DateComponents
-       {
-           let calendar = Calendar.current
-        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: data.date)
-           return components
-       }
-       
+//    var components : DateComponents
+//       {
+//           let calendar = Calendar.current
+//        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: data.date)
+//           return components
+//       }
+//
     
     
     
     let calendar = Calendar.current
     
-    var dateDesc : String
-    {
-        if calendar.isDateInYesterday(data.date)
-        {return "Yesterday"}
-        
-        if calendar.isDateInToday(data.date)
-        {
-            return "Today"
-        }
-        
-        if (data.date.isInThisWeek)
-        {
-            return data.date.dayOfWeek() ?? month
-            
-        }
-        
-    else
-        {return "\(month) \(components.day!)"}
-        
-    }
+    @State var dateDescription : String = ""
+//    var dateDesc : String
+//    {
+//        if calendar.isDateInYesterday(data.date)
+//        {return "Yesterday"}
+//
+//        if calendar.isDateInToday(data.date)
+//        {
+//            return "Today"
+//        }
+//
+//        if (data.date.isInThisWeek)
+//        {
+//            return data.date.dayOfWeek() ?? month
+//
+//        }
+//
+//    else
+//        {return "\(month) \(components.day!)"}
+//
+//    }
+    var months = ["January", "February", "March","April","May","June","July","August","September","October","November","December"]
 
-    var month : String
-    {
-        switch components.month {
-
-            case 1:
-                      return "January"
-            case 2:
-                      return "February"
-            case 3:
-                      return "March"
-            case 4:
-                      return "April"
-            case 5:
-                      return "May"
-            case 6:
-                      return "June"
-            case 7:
-                      return "July"
-            case 8:
-                      return "August"
-            case 9:
-                      return "September"
-            case 10:
-                      return "October"
-            case 11:
-                      return "November"
-            case 12:
-                      return "December"
-
-        default:
-            return "Fuck"
-        }
-
-    }
+//    var month : String
+//    {
+//        switch components.month {
+//
+//            case 1:
+//                      return "January"
+//            case 2:
+//                      return "February"
+//            case 3:
+//                      return "March"
+//            case 4:
+//                      return "April"
+//            case 5:
+//                      return "May"
+//            case 6:
+//                      return "June"
+//            case 7:
+//                      return "July"
+//            case 8:
+//                      return "August"
+//            case 9:
+//                      return "September"
+//            case 10:
+//                      return "October"
+//            case 11:
+//                      return "November"
+//            case 12:
+//                      return "December"
+//
+//        default:
+//            return "Fuck"
+//        }
+//
+//    }
     
     
     var body: some View {
         VStack(alignment : .leading){
-            Text("\(self.dateDesc)")
+            Text("\(self.dateDescription)")
                 .font(.system(size: 10))
             .fontWeight(.light)
+                .onAppear()
+                    {
+                        self.updateDateDescription()
+            }
         
            // .padding(.top, 5)
             //.offset(y : -2.5)
@@ -163,6 +169,29 @@ struct DiaryThumbnail: View {
         
         
 }
+    func updateDateDescription()
+    {
+        if self.calendar.isDateInYesterday(data.date)
+        {
+            self.dateDescription = "Yesterday"
+            
+        }
+            
+       else if self.calendar.isDateInToday(data.date)
+            {
+            self.dateDescription = "Today"
+            }
+            
+          else if (data.date.isInThisWeek)
+            {
+                self.dateDescription = data.date.dayOfWeek() ?? "This Week"
+                
+            }
+            
+        else
+            {self.dateDescription = "\(self.months[calendar.component(.month, from: self.data.date) - 1]) \(calendar.component(.day, from: self.data.date))"}
+    }
+    
 }
 
 

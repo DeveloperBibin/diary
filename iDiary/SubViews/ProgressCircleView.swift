@@ -53,6 +53,9 @@ struct ProgressCircleView: View {
     }
     
     var body: some View {
+        GeometryReader
+            {
+                geo in
         ZStack {
             if self.backgroundEnabled {
                 Circle()
@@ -68,4 +71,4 @@ struct ProgressCircleView: View {
                 .animation(.easeIn)
         }
     }
-}
+    }}

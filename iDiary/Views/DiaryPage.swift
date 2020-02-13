@@ -21,6 +21,8 @@ struct DiaryPage: View {
     
     @State var disable : Bool = true
     
+    
+    
     var images : [Photo]
     {
         return Array(self.data.images)

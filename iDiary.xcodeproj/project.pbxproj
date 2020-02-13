@@ -39,6 +39,7 @@
 		B596067223EAD508001EE331 /* LeftMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B596067123EAD508001EE331 /* LeftMapView.swift */; };
 		B596067423EB14D9001EE331 /* SearchViiew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B596067323EB14D9001EE331 /* SearchViiew.swift */; };
 		B596067623EB2250001EE331 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B596067523EB2250001EE331 /* SearchBar.swift */; };
+		B5CBE25823F3D80F007188BB /* HomeDiaryStreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBE25723F3D80F007188BB /* HomeDiaryStreakView.swift */; };
 		B5E524AB23ED75DD008F284A /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E524AA23ED75DD008F284A /* SettingsPage.swift */; };
 		B5E524AD23ED7976008F284A /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E524AC23ED7976008F284A /* ProgressCircleView.swift */; };
 		B5E524AF23EDB44C008F284A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E524AE23EDB44C008F284A /* CalendarView.swift */; };
@@ -110,6 +111,7 @@
 		B596067123EAD508001EE331 /* LeftMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMapView.swift; sourceTree = "<group>"; };
 		B596067323EB14D9001EE331 /* SearchViiew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViiew.swift; sourceTree = "<group>"; };
 		B596067523EB2250001EE331 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		B5CBE25723F3D80F007188BB /* HomeDiaryStreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDiaryStreakView.swift; sourceTree = "<group>"; };
 		B5E524AA23ED75DD008F284A /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 		B5E524AC23ED7976008F284A /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
 		B5E524AE23EDB44C008F284A /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				B55598D723EC4F7D00BD8357 /* FrequentLocationViewSearch.swift */,
 				B5E524AC23ED7976008F284A /* ProgressCircleView.swift */,
 				B5E524AE23EDB44C008F284A /* CalendarView.swift */,
+				B5CBE25723F3D80F007188BB /* HomeDiaryStreakView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				B5EF098D23E097F000EB5DEC /* TodayCard.swift in Sources */,
 				B5FED28F23E01EF0005D5F0B /* Diary.swift in Sources */,
 				B55598D823EC4F7D00BD8357 /* FrequentLocationViewSearch.swift in Sources */,
+				B5CBE25823F3D80F007188BB /* HomeDiaryStreakView.swift in Sources */,
 				B587119823E1CB89001DE6D9 /* ContactSearch.swift in Sources */,
 				B5564B5523E2FD4F0067AFB8 /* DiaryPage.swift in Sources */,
 				B5FED26023E019D4005D5F0B /* iDiary.xcdatamodeld in Sources */,
