@@ -8,6 +8,7 @@
 
 import SwiftUI
 import UIKit
+import WatchConnectivity
 
 struct HomeDiary: View {
     
@@ -18,10 +19,13 @@ struct HomeDiary: View {
     @State var settingsPageShown : Bool = false
     @State var selectedViewOptin : Int = 0
     @State var viewOptions = [ "list.bullet","calendar"]
+    var session : WCSession
     
-    init() {
+    
+    init(session : WCSession) {
         
         UITableView.appearance().separatorStyle = .none
+        self.session = session
     }
     
     
@@ -34,7 +38,7 @@ struct HomeDiary: View {
                     VStack{
                         if selectedViewOptin == 0
                         {
-                            navigationView(diaries: self.diaries, showSearchView: self.$showSearchView)
+                            navigationView(diaries: self.diaries, showSearchView: self.$showSearchView, session: self.session)
                                 .transition(.move(edge: .leading))
                                 .animation(.default)
                             
@@ -103,7 +107,7 @@ struct HomeDiary: View {
 
 struct HomeDiary_Previews: PreviewProvider {
     static var previews: some View {
-        HomeDiary()
+        HomeDiary(session: WCSession.default)
     }
 }
 
@@ -116,6 +120,8 @@ struct navigationView : View
     @Binding var showSearchView : Bool
     @State var weekNumber : Double = 0
     @State var dayNumber : Int = 0
+    @State var todayItemShwon = false
+    var session : WCSession
     
     var body : some View{
         
@@ -130,13 +136,11 @@ struct navigationView : View
                     
                     HomeDiaryStreakView(weekNumber: self.$weekNumber, dayNumber: self.$dayNumber)
                         .frame(height : UIScreen.main.bounds.size.height / 6)
-                       // .padding(.top, 10)
-                       
-                    
                     
                     
                     ListTitle(image: .constant("list.dash"), title: .constant("Diary Entries"))
                         .padding(.top)
+                    
                     ForEach(self.diaries)
                     {
                         
@@ -148,36 +152,33 @@ struct navigationView : View
                                     self.todayCardIsShown.toggle()
                             }
                             .padding([.trailing, .leading], 8)
+                            
+                            
                             Divider().padding([.trailing, .leading], 8)
-                           // .padding([ .bottom], 12)
+                            // .padding([ .bottom], 12)
                         }
                         else
                         {
-                        if !diary.isEmpty
-                        {NavigationLink(destination : DiaryPage(data: diary, diaryItems: self.diaries))
-                        {DiaryThumbnail(data: diary)
-                            
+                            if !diary.isEmpty
+                            {NavigationLink(destination : DiaryPage(data: diary, diaryItems: self.diaries))
+                            {DiaryThumbnail(data: diary)
+                                
+                                }
                             }
-                        }
                         }
                         
                         
                         
                     } .onDelete(perform: delete)
-                    .listRowInsets(EdgeInsets())
-                    
-                    
-                    //.padding(.trailing, 10)
-                    
-                    
+                        .listRowInsets(EdgeInsets())
                     
             }
             .onAppear()
-                                       {
-                                    self.updateStreakValues()
-                                        
-                                      }
-                               
+                {
+                    self.updateStreakValues()
+                    
+            }
+            
         }
         .background(EmptyView().sheet(isPresented: self.$todayCardIsShown, onDismiss: {
             
@@ -225,7 +226,7 @@ struct navigationView : View
         }
         else
         {
-        self.deleteDiaryItem(item: listItem)
+            self.deleteDiaryItem(item: listItem)
         }
         
     }
@@ -235,9 +236,9 @@ struct navigationView : View
         guard let diary = self.diaries.first else {return}
         diary.title = ""
         diary.entry = ""
-        diary.contacts = Set<Contact>()
-        diary.locations = Set<Location>()
-        diary.images = Set<Photo>()
+        diary.contacts.forEach(self.managedObjectcontext.delete)
+        diary.locations.forEach(self.managedObjectcontext.delete)
+        diary.images.forEach(self.managedObjectcontext.delete)
         diary.isFav = false
     }
     
@@ -249,44 +250,80 @@ struct navigationView : View
         
     }
     func saveDiaryToCoreData(){
-    do
-    {
-    try self.managedObjectcontext.save()
-    }
-    catch let error as NSError
-    {
-    print("Error \(error)")
-    }
+        do
+        {
+            try self.managedObjectcontext.save()
+        }
+        catch let error as NSError
+        {
+            print("Error \(error)")
+        }
     }
     
     func updateStreakValues()
     {
         DispatchQueue.global(qos: .background).async {
             self.weekNumber =  Double(self.diaries.filter({!$0.isEmpty && $0.date.isInSameWeek(date: Date())}).count)
-                   
-                   var tempItem = Calendar.current.date(byAdding: .day, value: 1, to: Date())
-                   
-                   self.dayNumber = 0
-                   
-                  
-                       for item in self.diaries
-                             {
-                                 tempItem = Calendar.current.date(byAdding: .day, value: -1, to: tempItem!)!
-                                 if item.date.isInSameDay(date: tempItem!) && !item.isEmpty
-                                 {
-                                   
-                                       self.dayNumber += 1
-                                       tempItem = item.date
-                                       print("Here \(self.dayNumber) \(item.date) \(item.isEmpty)")
-                                 }
-                                 else
-                                 {return}
-                             }
-                   
+            
+            var tempItem = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+            
+            self.dayNumber = 0
+            
+            
+            for item in self.diaries
+            {
+                tempItem = Calendar.current.date(byAdding: .day, value: -1, to: tempItem!)!
+                if item.date.isInSameDay(date: tempItem!) && !item.isEmpty
+                {
+                    
+                    self.dayNumber += 1
+                    tempItem = item.date
+                    print("Here \(self.dayNumber) \(item.date) \(item.isEmpty)")
+                }
+                else
+                {
+                    let message = ["dayNumber" : self.dayNumber.description, "WeeklyNumber" : self.weekNumber.description]
+                               
+                               if self.session.isReachable
+                               {
+                                   self.WcSendMessage(message: message)
+                                   print("Send Message")
+                               }
+                               else
+                               {
+                                   self.WcUpdateContext(message: message)
+                                   print("Send Message")
+                               }
+                    
+                    return}
+            }
+            
+           
+            
+            
         }
-       
-      
-        //self.dayNumber = self.diaries.
+        
+        
+    }
+    
+    func WcSendMessage(message : [String : Any])
+    {
+        print("Sending message \(message["dayNumber"])")
+        self.session.sendMessage(message, replyHandler: nil) { (error) in
+        
+        print(error.localizedDescription)
+        
+        }
+    }
+    func WcUpdateContext(message : [String : Any])
+    {
+        print("Sending update \(message["dayNumber"])")
+        do{
+            try self.session.updateApplicationContext(message)
+        }catch let err as NSError
+        {
+            print("Error sending Context : \(err)")
+        }
     }
 }
 
@@ -300,17 +337,15 @@ struct ListTitle : View
         VStack( alignment : .leading,spacing : 10){
             HStack{
                 Image(systemName : self.image)
-                    .font(.callout)
+                    .font(.caption)
                     .foregroundColor(.secondary)
                 Text("\(title.uppercased())")
-                    .font(.system(.callout, design: .rounded))
+                    .font(.system(.caption, design: .rounded))
                     .fontWeight(.bold)
                     .foregroundColor(.secondary)
                 //.opacity(0.9)
             }
-            
-            Divider()
-                .padding(.bottom, 10)
+            .padding(.bottom, 10)
         }
     }
 }

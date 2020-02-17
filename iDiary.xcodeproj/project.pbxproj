@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B521EF0123F5AE8A0074145C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B521EEFF23F5AE8A0074145C /* Interface.storyboard */; };
+		B521EF0323F5AE8C0074145C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B521EF0223F5AE8C0074145C /* Assets.xcassets */; };
+		B521EF0A23F5AE8D0074145C /* iDiary Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B521EF0923F5AE8D0074145C /* iDiary Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B521EF0F23F5AE8D0074145C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521EF0E23F5AE8D0074145C /* ContentView.swift */; };
+		B521EF1123F5AE8D0074145C /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521EF1023F5AE8D0074145C /* HostingController.swift */; };
+		B521EF1323F5AE8D0074145C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521EF1223F5AE8D0074145C /* ExtensionDelegate.swift */; };
+		B521EF1523F5AE8D0074145C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521EF1423F5AE8D0074145C /* NotificationController.swift */; };
+		B521EF1723F5AE8D0074145C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521EF1623F5AE8D0074145C /* NotificationView.swift */; };
+		B521EF1923F5AE8E0074145C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B521EF1823F5AE8E0074145C /* Assets.xcassets */; };
+		B521EF1C23F5AE8E0074145C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B521EF1B23F5AE8E0074145C /* Preview Assets.xcassets */; };
+		B521EF2123F5AE8E0074145C /* iDiary Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B521EEFD23F5AE8A0074145C /* iDiary Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B521EF2A23F5AF2D0074145C /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E524AC23ED7976008F284A /* ProgressCircleView.swift */; };
 		B52B52A123E0292A005563F6 /* DiaryThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A023E0292A005563F6 /* DiaryThumbnail.swift */; };
 		B52B52A323E03959005563F6 /* TodayCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A223E03959005563F6 /* TodayCardButton.swift */; };
 		B52B52A623E03D6C005563F6 /* SiriShortCutsNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A523E03D6C005563F6 /* SiriShortCutsNames.swift */; };
@@ -40,6 +52,8 @@
 		B596067423EB14D9001EE331 /* SearchViiew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B596067323EB14D9001EE331 /* SearchViiew.swift */; };
 		B596067623EB2250001EE331 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B596067523EB2250001EE331 /* SearchBar.swift */; };
 		B5CBE25823F3D80F007188BB /* HomeDiaryStreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBE25723F3D80F007188BB /* HomeDiaryStreakView.swift */; };
+		B5CECBA023FAE68200D74A89 /* StreaksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CECB9F23FAE68200D74A89 /* StreaksData.swift */; };
+		B5DD488223F540FA00D6C141 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DD488123F540FA00D6C141 /* CloudKit.framework */; };
 		B5E524AB23ED75DD008F284A /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E524AA23ED75DD008F284A /* SettingsPage.swift */; };
 		B5E524AD23ED7976008F284A /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E524AC23ED7976008F284A /* ProgressCircleView.swift */; };
 		B5E524AF23EDB44C008F284A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E524AE23EDB44C008F284A /* CalendarView.swift */; };
@@ -62,6 +76,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B521EF0B23F5AE8D0074145C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5FED24F23E019D1005D5F0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B521EF0823F5AE8D0074145C;
+			remoteInfo = "iDiary Watch Extension";
+		};
+		B521EF1F23F5AE8E0074145C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5FED24F23E019D1005D5F0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B521EEFC23F5AE8A0074145C;
+			remoteInfo = "iDiary Watch";
+		};
 		B5FED27123E019DD005D5F0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5FED24F23E019D1005D5F0B /* Project object */;
@@ -78,7 +106,46 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B521EF2223F5AE8E0074145C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B521EF2123F5AE8E0074145C /* iDiary Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B521EF2523F5AE8E0074145C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B521EF0A23F5AE8D0074145C /* iDiary Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B521EEFD23F5AE8A0074145C /* iDiary Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iDiary Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B521EF0023F5AE8A0074145C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		B521EF0223F5AE8C0074145C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B521EF0423F5AE8C0074145C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B521EF0923F5AE8D0074145C /* iDiary Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "iDiary Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B521EF0E23F5AE8D0074145C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B521EF1023F5AE8D0074145C /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		B521EF1223F5AE8D0074145C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		B521EF1423F5AE8D0074145C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		B521EF1623F5AE8D0074145C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		B521EF1823F5AE8E0074145C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B521EF1B23F5AE8E0074145C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B521EF1D23F5AE8E0074145C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B521EF1E23F5AE8E0074145C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		B52B52A023E0292A005563F6 /* DiaryThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryThumbnail.swift; sourceTree = "<group>"; };
 		B52B52A223E03959005563F6 /* TodayCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardButton.swift; sourceTree = "<group>"; };
 		B52B52A523E03D6C005563F6 /* SiriShortCutsNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriShortCutsNames.swift; sourceTree = "<group>"; };
@@ -112,6 +179,9 @@
 		B596067323EB14D9001EE331 /* SearchViiew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViiew.swift; sourceTree = "<group>"; };
 		B596067523EB2250001EE331 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		B5CBE25723F3D80F007188BB /* HomeDiaryStreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDiaryStreakView.swift; sourceTree = "<group>"; };
+		B5CECB9F23FAE68200D74A89 /* StreaksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksData.swift; sourceTree = "<group>"; };
+		B5DD487F23F540DD00D6C141 /* iDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iDiary.entitlements; sourceTree = "<group>"; };
+		B5DD488123F540FA00D6C141 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		B5E524AA23ED75DD008F284A /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 		B5E524AC23ED7976008F284A /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
 		B5E524AE23EDB44C008F284A /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -140,10 +210,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B521EF0623F5AE8D0074145C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5FED25423E019D3005D5F0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5DD488223F540FA00D6C141 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +242,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B521EEFE23F5AE8A0074145C /* iDiary Watch */ = {
+			isa = PBXGroup;
+			children = (
+				B521EEFF23F5AE8A0074145C /* Interface.storyboard */,
+				B521EF0223F5AE8C0074145C /* Assets.xcassets */,
+				B521EF0423F5AE8C0074145C /* Info.plist */,
+			);
+			path = "iDiary Watch";
+			sourceTree = "<group>";
+		};
+		B521EF0D23F5AE8D0074145C /* iDiary Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B521EF0E23F5AE8D0074145C /* ContentView.swift */,
+				B521EF1023F5AE8D0074145C /* HostingController.swift */,
+				B521EF1223F5AE8D0074145C /* ExtensionDelegate.swift */,
+				B521EF1423F5AE8D0074145C /* NotificationController.swift */,
+				B521EF1623F5AE8D0074145C /* NotificationView.swift */,
+				B521EF1823F5AE8E0074145C /* Assets.xcassets */,
+				B521EF1D23F5AE8E0074145C /* Info.plist */,
+				B521EF1E23F5AE8E0074145C /* PushNotificationPayload.apns */,
+				B521EF1A23F5AE8E0074145C /* Preview Content */,
+				B5CECB9F23FAE68200D74A89 /* StreaksData.swift */,
+			);
+			path = "iDiary Watch Extension";
+			sourceTree = "<group>";
+		};
+		B521EF1A23F5AE8E0074145C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B521EF1B23F5AE8E0074145C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		B52B52A423E03D42005563F6 /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +316,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B5DD488023F540FA00D6C141 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5DD488123F540FA00D6C141 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B5EF098E23E0998E00EB5DEC /* HostingControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,7 +338,10 @@
 				B5FED25923E019D4005D5F0B /* iDiary */,
 				B5FED27323E019DD005D5F0B /* iDiaryTests */,
 				B5FED27E23E019DD005D5F0B /* iDiaryUITests */,
+				B521EEFE23F5AE8A0074145C /* iDiary Watch */,
+				B521EF0D23F5AE8D0074145C /* iDiary Watch Extension */,
 				B5FED25823E019D4005D5F0B /* Products */,
+				B5DD488023F540FA00D6C141 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -227,6 +351,8 @@
 				B5FED25723E019D4005D5F0B /* iDiary.app */,
 				B5FED27023E019DD005D5F0B /* iDiaryTests.xctest */,
 				B5FED27B23E019DD005D5F0B /* iDiaryUITests.xctest */,
+				B521EEFD23F5AE8A0074145C /* iDiary Watch.app */,
+				B521EF0923F5AE8D0074145C /* iDiary Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,6 +360,7 @@
 		B5FED25923E019D4005D5F0B /* iDiary */ = {
 			isa = PBXGroup;
 			children = (
+				B5DD487F23F540DD00D6C141 /* iDiary.entitlements */,
 				B544C73623E159BB009127F5 /* Models */,
 				B544C73323E15274009127F5 /* CustomControlls */,
 				B544C73023E147C9009127F5 /* res */,
@@ -335,6 +462,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B521EEFC23F5AE8A0074145C /* iDiary Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B521EF2923F5AE8E0074145C /* Build configuration list for PBXNativeTarget "iDiary Watch" */;
+			buildPhases = (
+				B521EEFB23F5AE8A0074145C /* Resources */,
+				B521EF2523F5AE8E0074145C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B521EF0C23F5AE8D0074145C /* PBXTargetDependency */,
+			);
+			name = "iDiary Watch";
+			productName = "iDiary Watch";
+			productReference = B521EEFD23F5AE8A0074145C /* iDiary Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		B521EF0823F5AE8D0074145C /* iDiary Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B521EF2823F5AE8E0074145C /* Build configuration list for PBXNativeTarget "iDiary Watch Extension" */;
+			buildPhases = (
+				B521EF0523F5AE8D0074145C /* Sources */,
+				B521EF0623F5AE8D0074145C /* Frameworks */,
+				B521EF0723F5AE8D0074145C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iDiary Watch Extension";
+			productName = "iDiary Watch Extension";
+			productReference = B521EF0923F5AE8D0074145C /* iDiary Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		B5FED25623E019D3005D5F0B /* iDiary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5FED28423E019DE005D5F0B /* Build configuration list for PBXNativeTarget "iDiary" */;
@@ -342,10 +503,12 @@
 				B5FED25323E019D3005D5F0B /* Sources */,
 				B5FED25423E019D3005D5F0B /* Frameworks */,
 				B5FED25523E019D3005D5F0B /* Resources */,
+				B521EF2223F5AE8E0074145C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B521EF2023F5AE8E0074145C /* PBXTargetDependency */,
 			);
 			name = iDiary;
 			productName = iDiary;
@@ -398,6 +561,12 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Bibin Benny";
 				TargetAttributes = {
+					B521EEFC23F5AE8A0074145C = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					B521EF0823F5AE8D0074145C = {
+						CreatedOnToolsVersion = 11.3;
+					};
 					B5FED25623E019D3005D5F0B = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -427,11 +596,31 @@
 				B5FED25623E019D3005D5F0B /* iDiary */,
 				B5FED26F23E019DD005D5F0B /* iDiaryTests */,
 				B5FED27A23E019DD005D5F0B /* iDiaryUITests */,
+				B521EEFC23F5AE8A0074145C /* iDiary Watch */,
+				B521EF0823F5AE8D0074145C /* iDiary Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B521EEFB23F5AE8A0074145C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B521EF0323F5AE8C0074145C /* Assets.xcassets in Resources */,
+				B521EF0123F5AE8A0074145C /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B521EF0723F5AE8D0074145C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B521EF1C23F5AE8E0074145C /* Preview Assets.xcassets in Resources */,
+				B521EF1923F5AE8E0074145C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5FED25523E019D3005D5F0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -459,6 +648,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B521EF0523F5AE8D0074145C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B521EF1123F5AE8D0074145C /* HostingController.swift in Sources */,
+				B521EF2A23F5AF2D0074145C /* ProgressCircleView.swift in Sources */,
+				B5CECBA023FAE68200D74A89 /* StreaksData.swift in Sources */,
+				B521EF0F23F5AE8D0074145C /* ContentView.swift in Sources */,
+				B521EF1523F5AE8D0074145C /* NotificationController.swift in Sources */,
+				B521EF1323F5AE8D0074145C /* ExtensionDelegate.swift in Sources */,
+				B521EF1723F5AE8D0074145C /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5FED25323E019D3005D5F0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -532,6 +735,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B521EF0C23F5AE8D0074145C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B521EF0823F5AE8D0074145C /* iDiary Watch Extension */;
+			targetProxy = B521EF0B23F5AE8D0074145C /* PBXContainerItemProxy */;
+		};
+		B521EF2023F5AE8E0074145C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B521EEFC23F5AE8A0074145C /* iDiary Watch */;
+			targetProxy = B521EF1F23F5AE8E0074145C /* PBXContainerItemProxy */;
+		};
 		B5FED27223E019DD005D5F0B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B5FED25623E019D3005D5F0B /* iDiary */;
@@ -545,6 +758,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B521EEFF23F5AE8A0074145C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B521EF0023F5AE8A0074145C /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		B5FED26823E019DC005D5F0B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -556,6 +777,92 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B521EF2323F5AE8E0074145C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8793HAT2QD;
+				IBSC_MODULE = iDiary_Watch_Extension;
+				INFOPLIST_FILE = "iDiary Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.december.idiary.iDiary.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		B521EF2423F5AE8E0074145C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8793HAT2QD;
+				IBSC_MODULE = iDiary_Watch_Extension;
+				INFOPLIST_FILE = "iDiary Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.december.idiary.iDiary.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		B521EF2623F5AE8E0074145C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"iDiary Watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 8793HAT2QD;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "iDiary Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.december.idiary.iDiary.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		B521EF2723F5AE8E0074145C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"iDiary Watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 8793HAT2QD;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "iDiary Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.december.idiary.iDiary.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
 		B5FED28223E019DD005D5F0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -674,6 +981,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iDiary/iDiary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iDiary/Preview Content\"";
 				DEVELOPMENT_TEAM = 8793HAT2QD;
@@ -694,6 +1002,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iDiary/iDiary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iDiary/Preview Content\"";
 				DEVELOPMENT_TEAM = 8793HAT2QD;
@@ -797,6 +1106,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B521EF2823F5AE8E0074145C /* Build configuration list for PBXNativeTarget "iDiary Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B521EF2623F5AE8E0074145C /* Debug */,
+				B521EF2723F5AE8E0074145C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B521EF2923F5AE8E0074145C /* Build configuration list for PBXNativeTarget "iDiary Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B521EF2323F5AE8E0074145C /* Debug */,
+				B521EF2423F5AE8E0074145C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B5FED25223E019D1005D5F0B /* Build configuration list for PBXProject "iDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

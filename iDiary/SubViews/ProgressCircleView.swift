@@ -40,7 +40,7 @@ struct ProgressCircleView: View {
          maxValue: Double,
          style: Stroke = .line,
          backgroundEnabled: Bool = true,
-         backgroundColor: Color = Color(.quaternarySystemFill),
+         backgroundColor: Color = Color.secondary,
          foregroundColor: Color = Color.black,
          lineWidth: CGFloat = 10) {
         self.value = value

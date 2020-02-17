@@ -18,7 +18,7 @@ struct ImageThumbnailTodayCard: View {
      
     var image : UIImage
     {
-        UIImage(data: self.photo.image)!
+        UIImage(data: self.photo.image) ?? UIImage(systemName: "exclamationmark.icloud.fill")!
     }
     
     var size : CGSize
