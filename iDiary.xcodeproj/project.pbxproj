@@ -19,6 +19,9 @@
 		B521EF1C23F5AE8E0074145C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B521EF1B23F5AE8E0074145C /* Preview Assets.xcassets */; };
 		B521EF2123F5AE8E0074145C /* iDiary Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B521EEFD23F5AE8A0074145C /* iDiary Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B521EF2A23F5AF2D0074145C /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E524AC23ED7976008F284A /* ProgressCircleView.swift */; };
+		B52AB2D123FD709E00A03553 /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AB2D023FD709E00A03553 /* CommonFunctions.swift */; };
+		B52AB2D323FD74DE00A03553 /* WatchToIphoneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AB2D223FD74DE00A03553 /* WatchToIphoneData.swift */; };
+		B52AB2D523FD755900A03553 /* WatchToIphoneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AB2D223FD74DE00A03553 /* WatchToIphoneData.swift */; };
 		B52B52A123E0292A005563F6 /* DiaryThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A023E0292A005563F6 /* DiaryThumbnail.swift */; };
 		B52B52A323E03959005563F6 /* TodayCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A223E03959005563F6 /* TodayCardButton.swift */; };
 		B52B52A623E03D6C005563F6 /* SiriShortCutsNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A523E03D6C005563F6 /* SiriShortCutsNames.swift */; };
@@ -33,6 +36,7 @@
 		B544C73E23E16B9A009127F5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C73D23E16B9A009127F5 /* LocationManager.swift */; };
 		B544C74023E16CB3009127F5 /* LocationResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C73F23E16CB3009127F5 /* LocationResultModel.swift */; };
 		B544C74223E16D21009127F5 /* PermissionDenied.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544C74123E16D21009127F5 /* PermissionDenied.swift */; };
+		B546EA5123FD2E98007D5E74 /* WatchLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546EA5023FD2E98007D5E74 /* WatchLocation.swift */; };
 		B54DB59223E28EA2001A5646 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DB59123E28EA2001A5646 /* ImagePicker.swift */; };
 		B54DB59423E29102001A5646 /* ImageAndCaptionAdder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DB59323E29102001A5646 /* ImageAndCaptionAdder.swift */; };
 		B54DB59623E2AE13001A5646 /* ImageThumbnailTodayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DB59523E2AE13001A5646 /* ImageThumbnailTodayCard.swift */; };
@@ -53,7 +57,16 @@
 		B596067623EB2250001EE331 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B596067523EB2250001EE331 /* SearchBar.swift */; };
 		B5CBE25823F3D80F007188BB /* HomeDiaryStreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBE25723F3D80F007188BB /* HomeDiaryStreakView.swift */; };
 		B5CECBA023FAE68200D74A89 /* StreaksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CECB9F23FAE68200D74A89 /* StreaksData.swift */; };
+		B5CECBA223FAECF200D74A89 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CECBA123FAECF200D74A89 /* AddItemView.swift */; };
+		B5CECBA423FAF1E900D74A89 /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CECBA323FAF1E900D74A89 /* ContactList.swift */; };
+		B5CECBA523FAF39000D74A89 /* ContactsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587119523E1CA75001DE6D9 /* ContactsFetcher.swift */; };
+		B5CECBA923FB021C00D74A89 /* Watch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5CECBA723FB021C00D74A89 /* Watch.xcdatamodeld */; };
+		B5CECBAB23FB039100D74A89 /* WatchContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CECBAA23FB039100D74A89 /* WatchContact.swift */; };
+		B5CECBAD23FB069C00D74A89 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CECBAC23FB069C00D74A89 /* Watch.swift */; };
 		B5DD488223F540FA00D6C141 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DD488123F540FA00D6C141 /* CloudKit.framework */; };
+		B5E3E05D23FCF0E800FA52D0 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E3E05C23FCF0E800FA52D0 /* LocationView.swift */; };
+		B5E3E05F23FCF26B00FA52D0 /* WatchMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E3E05E23FCF26B00FA52D0 /* WatchMapView.swift */; };
+		B5E3E06123FCF93100FA52D0 /* LocationGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E3E06023FCF93100FA52D0 /* LocationGetter.swift */; };
 		B5E524AB23ED75DD008F284A /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E524AA23ED75DD008F284A /* SettingsPage.swift */; };
 		B5E524AD23ED7976008F284A /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E524AC23ED7976008F284A /* ProgressCircleView.swift */; };
 		B5E524AF23EDB44C008F284A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E524AE23EDB44C008F284A /* CalendarView.swift */; };
@@ -146,6 +159,8 @@
 		B521EF1B23F5AE8E0074145C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B521EF1D23F5AE8E0074145C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B521EF1E23F5AE8E0074145C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		B52AB2D023FD709E00A03553 /* CommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
+		B52AB2D223FD74DE00A03553 /* WatchToIphoneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToIphoneData.swift; sourceTree = "<group>"; };
 		B52B52A023E0292A005563F6 /* DiaryThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryThumbnail.swift; sourceTree = "<group>"; };
 		B52B52A223E03959005563F6 /* TodayCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardButton.swift; sourceTree = "<group>"; };
 		B52B52A523E03D6C005563F6 /* SiriShortCutsNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriShortCutsNames.swift; sourceTree = "<group>"; };
@@ -160,6 +175,7 @@
 		B544C73D23E16B9A009127F5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B544C73F23E16CB3009127F5 /* LocationResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResultModel.swift; sourceTree = "<group>"; };
 		B544C74123E16D21009127F5 /* PermissionDenied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionDenied.swift; sourceTree = "<group>"; };
+		B546EA5023FD2E98007D5E74 /* WatchLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchLocation.swift; sourceTree = "<group>"; };
 		B54DB59123E28EA2001A5646 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B54DB59323E29102001A5646 /* ImageAndCaptionAdder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndCaptionAdder.swift; sourceTree = "<group>"; };
 		B54DB59523E2AE13001A5646 /* ImageThumbnailTodayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageThumbnailTodayCard.swift; sourceTree = "<group>"; };
@@ -180,8 +196,16 @@
 		B596067523EB2250001EE331 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		B5CBE25723F3D80F007188BB /* HomeDiaryStreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDiaryStreakView.swift; sourceTree = "<group>"; };
 		B5CECB9F23FAE68200D74A89 /* StreaksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksData.swift; sourceTree = "<group>"; };
+		B5CECBA123FAECF200D74A89 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		B5CECBA323FAF1E900D74A89 /* ContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
+		B5CECBA823FB021C00D74A89 /* Watch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Watch.xcdatamodel; sourceTree = "<group>"; };
+		B5CECBAA23FB039100D74A89 /* WatchContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContact.swift; sourceTree = "<group>"; };
+		B5CECBAC23FB069C00D74A89 /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
 		B5DD487F23F540DD00D6C141 /* iDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iDiary.entitlements; sourceTree = "<group>"; };
 		B5DD488123F540FA00D6C141 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		B5E3E05C23FCF0E800FA52D0 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		B5E3E05E23FCF26B00FA52D0 /* WatchMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMapView.swift; sourceTree = "<group>"; };
+		B5E3E06023FCF93100FA52D0 /* LocationGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGetter.swift; sourceTree = "<group>"; };
 		B5E524AA23ED75DD008F284A /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 		B5E524AC23ED7976008F284A /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
 		B5E524AE23EDB44C008F284A /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -255,6 +279,7 @@
 		B521EF0D23F5AE8D0074145C /* iDiary Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B5CECBA623FB01E600D74A89 /* CoreDataModels */,
 				B521EF0E23F5AE8D0074145C /* ContentView.swift */,
 				B521EF1023F5AE8D0074145C /* HostingController.swift */,
 				B521EF1223F5AE8D0074145C /* ExtensionDelegate.swift */,
@@ -265,6 +290,13 @@
 				B521EF1E23F5AE8E0074145C /* PushNotificationPayload.apns */,
 				B521EF1A23F5AE8E0074145C /* Preview Content */,
 				B5CECB9F23FAE68200D74A89 /* StreaksData.swift */,
+				B5CECBA123FAECF200D74A89 /* AddItemView.swift */,
+				B5CECBA323FAF1E900D74A89 /* ContactList.swift */,
+				B5CECBA723FB021C00D74A89 /* Watch.xcdatamodeld */,
+				B5E3E05C23FCF0E800FA52D0 /* LocationView.swift */,
+				B5E3E05E23FCF26B00FA52D0 /* WatchMapView.swift */,
+				B5E3E06023FCF93100FA52D0 /* LocationGetter.swift */,
+				B52AB2D023FD709E00A03553 /* CommonFunctions.swift */,
 			);
 			path = "iDiary Watch Extension";
 			sourceTree = "<group>";
@@ -312,8 +344,19 @@
 			isa = PBXGroup;
 			children = (
 				B544C73723E159D1009127F5 /* FloatButtonData.swift */,
+				B52AB2D223FD74DE00A03553 /* WatchToIphoneData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B5CECBA623FB01E600D74A89 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				B5CECBAA23FB039100D74A89 /* WatchContact.swift */,
+				B5CECBAC23FB069C00D74A89 /* Watch.swift */,
+				B546EA5023FD2E98007D5E74 /* WatchLocation.swift */,
+			);
+			path = CoreDataModels;
 			sourceTree = "<group>";
 		};
 		B5DD488023F540FA00D6C141 /* Frameworks */ = {
@@ -652,13 +695,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52AB2D123FD709E00A03553 /* CommonFunctions.swift in Sources */,
+				B5CECBAB23FB039100D74A89 /* WatchContact.swift in Sources */,
+				B5CECBA923FB021C00D74A89 /* Watch.xcdatamodeld in Sources */,
+				B5CECBAD23FB069C00D74A89 /* Watch.swift in Sources */,
+				B5E3E06123FCF93100FA52D0 /* LocationGetter.swift in Sources */,
+				B5CECBA523FAF39000D74A89 /* ContactsFetcher.swift in Sources */,
 				B521EF1123F5AE8D0074145C /* HostingController.swift in Sources */,
 				B521EF2A23F5AF2D0074145C /* ProgressCircleView.swift in Sources */,
 				B5CECBA023FAE68200D74A89 /* StreaksData.swift in Sources */,
 				B521EF0F23F5AE8D0074145C /* ContentView.swift in Sources */,
+				B546EA5123FD2E98007D5E74 /* WatchLocation.swift in Sources */,
 				B521EF1523F5AE8D0074145C /* NotificationController.swift in Sources */,
 				B521EF1323F5AE8D0074145C /* ExtensionDelegate.swift in Sources */,
+				B5CECBA423FAF1E900D74A89 /* ContactList.swift in Sources */,
+				B5E3E05F23FCF26B00FA52D0 /* WatchMapView.swift in Sources */,
+				B5E3E05D23FCF0E800FA52D0 /* LocationView.swift in Sources */,
 				B521EF1723F5AE8D0074145C /* NotificationView.swift in Sources */,
+				B5CECBA223FAECF200D74A89 /* AddItemView.swift in Sources */,
+				B52AB2D523FD755900A03553 /* WatchToIphoneData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +730,7 @@
 				B52B52A323E03959005563F6 /* TodayCardButton.swift in Sources */,
 				B596067223EAD508001EE331 /* LeftMapView.swift in Sources */,
 				B557FD1323E5663A00239AA6 /* DiaryPageContactView.swift in Sources */,
+				B52AB2D323FD74DE00A03553 /* WatchToIphoneData.swift in Sources */,
 				B541A03523E191B6009B79AA /* LocationThumbailTodayCard.swift in Sources */,
 				B52B52A623E03D6C005563F6 /* SiriShortCutsNames.swift in Sources */,
 				B5FED29323E021D4005D5F0B /* Photo.swift in Sources */,
@@ -1163,6 +1219,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		B5CECBA723FB021C00D74A89 /* Watch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B5CECBA823FB021C00D74A89 /* Watch.xcdatamodel */,
+			);
+			currentVersion = B5CECBA823FB021C00D74A89 /* Watch.xcdatamodel */;
+			path = Watch.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		B5FED25E23E019D4005D5F0B /* iDiary.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

@@ -14,6 +14,7 @@ import WatchConnectivity
 class HostingController: WKHostingController<ContentView> {
     var wcSession : WCSession! = nil
     var data : StreaksData = StreaksData()
+    
     override init() {
         super.init()
         if WCSession.isSupported()

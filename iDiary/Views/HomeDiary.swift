@@ -33,6 +33,19 @@ struct HomeDiary: View {
         
         NavigationView{
             VStack{
+                
+                Button(action : {
+                    let defaults = UserDefaults.standard
+                    let array = defaults.stringArray(forKey: "logs") ?? [String]()
+                    for item in array
+                    {
+                        print("\(item) \n")
+                    }
+                })
+                    {
+                        Text("Logs")
+                }
+                
                 if !self.showSearchView
                 {
                     VStack{

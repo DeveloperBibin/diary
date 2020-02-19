@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Watch" representedClassName=".Watch" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WatchContact" inverseName="contactOwner" inverseEntity="WatchContact"/>
+        <relationship name="deletdslocations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WatchLocation" inverseName="deletedOwner" inverseEntity="WatchLocation"/>
+        <relationship name="deleteds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WatchContact" inverseName="deletedOwner" inverseEntity="WatchContact"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WatchLocation" inverseName="locationOwner" inverseEntity="WatchLocation"/>
+    </entity>
+    <entity name="WatchContact" representedClassName=".WatchContact" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="contactOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Watch" inverseName="contacts" inverseEntity="Watch"/>
+        <relationship name="deletedOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Watch" inverseName="deleteds" inverseEntity="Watch"/>
+    </entity>
+    <entity name="WatchLocation" representedClassName=".WatchLocation" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="subTitle" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="deletedOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Watch" inverseName="deletdslocations" inverseEntity="Watch"/>
+        <relationship name="locationOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Watch" inverseName="locations" inverseEntity="Watch"/>
+    </entity>
+    <elements>
+        <element name="Watch" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="WatchContact" positionX="-54" positionY="0" width="128" height="103"/>
+        <element name="WatchLocation" positionX="-63" positionY="27" width="128" height="148"/>
+    </elements>
+</model>

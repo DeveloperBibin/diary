@@ -101,8 +101,20 @@ extension SceneDelegate : WCSessionDelegate
     }
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         
+        print("Rec AC")
+        let defaults = UserDefaults.standard
+        var array = defaults.stringArray(forKey: "logs") ?? [String]()
+        array.append("AC - Recieved at \(Date().description)")
+        defaults.set(array, forKey: "logs")
+        
     }
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("Rec MS")
+        let defaults = UserDefaults.standard
+        var array = defaults.stringArray(forKey: "logs") ?? [String]()
+        array.append("MS - Recieved at \(Date().description)")
+        defaults.set(array, forKey: "logs")
+        
         
     }
     

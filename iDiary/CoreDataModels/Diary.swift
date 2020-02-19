@@ -78,7 +78,7 @@ extension Diary{
                let today = Date()
            
         
-             var dateFrom = calendar.startOfDay(for: Date()) // eg. 2016-10-10 00:00:00
+              var dateFrom = calendar.startOfDay(for: Date()) // eg. 2016-10-10 00:00:00
                
               let resetOption = UserDefaults.standard.integer(forKey: "reset_time")
                
@@ -111,9 +111,9 @@ extension Diary{
                
                
                
-               dateFrom = calendar.startOfDay(for: dateFrom) // eg. 2016-10-10 00:00:00
-               let dateTo = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: dateFrom)
-        
+        dateFrom = calendar.startOfDay(for: dateFrom) // eg. 2016-10-10 00:00:00
+        let dateTo = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: dateFrom)
+
         print("getItemWithDate")
         let request : NSFetchRequest<Diary> = NSFetchRequest<Diary>(entityName: "Diary")
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
@@ -125,37 +125,3 @@ extension Diary{
     }
 }
 
-extension Date {
-    static var yesterday: Date { return Date().dayBefore }
-    static var tomorrow:  Date { return Date().dayAfter }
-    var dayBefore: Date {
-        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
-    }
-    var dayAfter: Date {
-        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
-    }
-    var noon: Date {
-        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
-    }
-    var month: Int {
-        return Calendar.current.component(.month,  from: self)
-    }
-    var isLastDayOfMonth: Bool {
-        return dayAfter.month != month
-    }
-}
-
-extension Diary
-{
-    
-    var isEmpty : Bool
-    {
-        if (self.title.isBlank && self.entry.isBlank && self.contacts.isEmpty && self.images.isEmpty && self.locations.isEmpty)
-        {
-            return true
-        }
-        else
-        {return false}
-    }
-    
-}
