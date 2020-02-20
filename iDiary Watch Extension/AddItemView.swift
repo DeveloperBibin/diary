@@ -26,6 +26,12 @@ struct AddItemView: View {
             Section(header : Text("Added Locations").foregroundColor(.secondary)){
                            LocationListItems(watch: self.watchItems.first!)
                        }
+                Section(header : Text("Deleted Locations").foregroundColor(.secondary)){
+                    deletedItemsLocation(watch: self.watchItems.first!)
+                                    }
+                    Section(header : Text("Deleted Contacts").foregroundColor(.secondary)){
+                        deletedItems(watch: self.watchItems.first!)
+                                    }
             
               
            

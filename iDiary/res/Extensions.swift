@@ -6,6 +6,8 @@
 //  Copyright © 2020 Bibin Benny. All rights reserved.
 //
 
+import CoreData
+import Contacts
 import SwiftUI
 
 extension AnyTransition{
@@ -43,40 +45,40 @@ extension AnyTransition{
 
 
 extension Date {
-
+    
     func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
         calendar.isDate(self, equalTo: date, toGranularity: component)
     }
-
+    
     func isInSameYear (date: Date) -> Bool { isEqual(to: date, toGranularity: .year) }
     func isInSameMonth(date: Date) -> Bool { isEqual(to: date, toGranularity: .month) }
     func isInSameDay  (date: Date) -> Bool { isEqual(to: date, toGranularity: .day) }
     func isInSameWeek (date: Date) -> Bool { isEqual(to: date, toGranularity: .weekOfYear) }
     
     func dayOfWeek() -> String? {
-           let dateFormatter = DateFormatter()
-           dateFormatter.dateFormat = "EEEE"
-           return dateFormatter.string(from: self).capitalized
-           // or use capitalized(with: locale) if you want
-       }
-
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self).capitalized
+        // or use capitalized(with: locale) if you want
+    }
+    
     var isInThisYear:  Bool { isInSameYear(date: Date()) }
     var isInThisMonth: Bool { isInSameMonth(date: Date()) }
     var isInThisWeek:  Bool { isInSameWeek(date: Date()) }
-
+    
     var isInYesterday: Bool { Calendar.current.isDateInYesterday(self) }
     var isInToday:     Bool { Calendar.current.isDateInToday(self) }
     var isInTomorrow:  Bool { Calendar.current.isDateInTomorrow(self) }
-
+    
     var isInTheFuture: Bool { self > Date() }
     var isInThePast:   Bool { self < Date() }
 }
 
 
 extension String {
-  var isBlank: Bool {
-    return allSatisfy({ $0.isWhitespace })
-  }
+    var isBlank: Bool {
+        return allSatisfy({ $0.isWhitespace })
+    }
 }
 
 
@@ -144,14 +146,14 @@ extension UIImage {
         case high    = 0.75
         case highest = 1
     }
-
+    
     func jpeg(_ jpegQuality: JPEGQuality) -> Data? {
         return jpegData(compressionQuality: jpegQuality.rawValue)
     }
 }
 
 func splitString (string : String) -> [String]
-
+    
 {
     var string1 : String = ""
     var string2 : String = ""
@@ -197,52 +199,52 @@ func dateDesc(date : Date) -> String  {
     {
         
         var components : DateComponents
-           {
-               let calendar = Calendar.current
-               let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
-               return components
-           }
+        {
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+            return components
+        }
         
-
+        
         var month : String
         {
             switch components.month {
-
-                case 1:
-                          return "January"
-                case 2:
-                          return "February"
-                case 3:
-                          return "March"
-                case 4:
-                          return "April"
-                case 5:
-                          return "May"
-                case 6:
-                          return "June"
-                case 7:
-                          return "July"
-                case 8:
-                          return "August"
-                case 9:
-                          return "September"
-                case 10:
-                          return "October"
-                case 11:
-                          return "November"
-                case 12:
-                          return "December"
-
+                
+            case 1:
+                return "January"
+            case 2:
+                return "February"
+            case 3:
+                return "March"
+            case 4:
+                return "April"
+            case 5:
+                return "May"
+            case 6:
+                return "June"
+            case 7:
+                return "July"
+            case 8:
+                return "August"
+            case 9:
+                return "September"
+            case 10:
+                return "October"
+            case 11:
+                return "November"
+            case 12:
+                return "December"
+                
             default:
                 return ""
             }
-
+            
         }
-
         
-           
         
-       lastMentioned = "\(month) \(components.day!), \(components.year!)"
+        
+        
+        lastMentioned = "\(month) \(components.day!), \(components.year!)"
         
     }
     
@@ -261,7 +263,7 @@ extension Array {
                 arrayOrdered.append(value)
             }
         }
-
+        
         return arrayOrdered
     }
 }
@@ -325,3 +327,91 @@ extension Diary
     
 }
 
+
+func getDesiredDateRequest(date : Date) -> NSFetchRequest<Diary>
+    
+{
+   
+    let today = date
+    let request : NSFetchRequest<Diary> = NSFetchRequest<Diary>(entityName: "Diary")
+    let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+    let predicate = NSPredicate(format: "date == %@", today as NSDate)
+    request.sortDescriptors = [sortDescriptor]
+    request.predicate = predicate
+    return request
+    
+}
+
+
+//
+//func getAllContacts()
+//{
+//
+//    let contacts : [CNContact]
+//    let store = CNContactStore()
+//
+//    print("Requesting Contct acces")
+//
+//    store.requestAccess(for: .contacts)
+//    {
+//        (granted, err) in
+//
+//
+//
+//
+//        if granted
+//
+//        {
+//
+//
+//
+//            do {
+//
+//                let keysToFetch = [CNContactGivenNameKey as CNKeyDescriptor,
+//                                   CNContactMiddleNameKey as CNKeyDescriptor,
+//                                   CNContactFamilyNameKey as CNKeyDescriptor,
+//                                   CNContactImageDataAvailableKey as CNKeyDescriptor,
+//                                   CNContactImageDataKey as CNKeyDescriptor,
+//                                   CNContactIdentifierKey as CNKeyDescriptor,
+//                                   CNContactFormatter.descriptorForRequiredKeys(for: .fullName) as CNKeyDescriptor]
+//
+//
+//                let requeest = CNContactFetchRequest(keysToFetch: keysToFetch)
+//
+//                store.
+//
+//                do {
+//                    try store.enumerateContacts(with: requeest)
+//                    {
+//                        (contact, stop) in
+//                        DispatchQueue.main.async {
+//                           contacts.append(contact)
+//                        }
+//
+//                    }
+//                } catch {
+//                    print("Could not fetch Contacts.")
+//                }
+//
+//                print("suggested count from fetched class is \(self.suggestedContacts.count)")
+//
+//            }
+//
+//        }
+//
+//
+//        else
+//        {
+//            DispatchQueue.main.async {
+//
+//
+//                self.contactStatus = "denied"
+//
+//
+//            }
+//
+//            print("Acces not granted.")
+//        }
+//    }
+//
+//}

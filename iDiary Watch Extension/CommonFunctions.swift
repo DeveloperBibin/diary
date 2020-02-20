@@ -20,7 +20,7 @@ func sendDataToiPhone(_ message : Watch)
     do{
                 let data = try encoder.encode(txt)
                 let stringData = String(data : data, encoding: .utf8)
-                let message = ["message": stringData ?? ""]
+                let message = ["watchData": stringData ?? ""]
                 
                 if session.isReachable{
                                         session.sendMessage(message, replyHandler: nil) { (error) in

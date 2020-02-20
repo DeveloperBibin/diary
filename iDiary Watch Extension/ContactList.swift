@@ -30,11 +30,6 @@ struct ContactList: View {
     }
 }
 
-//struct ContactList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContactList(results: FetchedResults<Watch>())
-//    }
-//}
 
 struct contactRow : View{
     @Environment(\.managedObjectContext) var managedObjectcontext
@@ -51,7 +46,8 @@ struct contactRow : View{
                     .font(.headline)
                 
             } .onTapGesture {
-                       
+                     
+                print("\(self.contact.identifier)")
                 if self.watch.contacts.contains(where: {$0.id == self.contact.identifier})
                 {
                     //Item already added, do remove it.

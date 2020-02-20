@@ -22,6 +22,7 @@
 		B52AB2D123FD709E00A03553 /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AB2D023FD709E00A03553 /* CommonFunctions.swift */; };
 		B52AB2D323FD74DE00A03553 /* WatchToIphoneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AB2D223FD74DE00A03553 /* WatchToIphoneData.swift */; };
 		B52AB2D523FD755900A03553 /* WatchToIphoneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AB2D223FD74DE00A03553 /* WatchToIphoneData.swift */; };
+		B52AB2D923FD9FFC00A03553 /* FetchContactWithIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AB2D823FD9FFC00A03553 /* FetchContactWithIdentifier.swift */; };
 		B52B52A123E0292A005563F6 /* DiaryThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A023E0292A005563F6 /* DiaryThumbnail.swift */; };
 		B52B52A323E03959005563F6 /* TodayCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A223E03959005563F6 /* TodayCardButton.swift */; };
 		B52B52A623E03D6C005563F6 /* SiriShortCutsNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B52A523E03D6C005563F6 /* SiriShortCutsNames.swift */; };
@@ -161,6 +162,7 @@
 		B521EF1E23F5AE8E0074145C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		B52AB2D023FD709E00A03553 /* CommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		B52AB2D223FD74DE00A03553 /* WatchToIphoneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchToIphoneData.swift; sourceTree = "<group>"; };
+		B52AB2D823FD9FFC00A03553 /* FetchContactWithIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContactWithIdentifier.swift; sourceTree = "<group>"; };
 		B52B52A023E0292A005563F6 /* DiaryThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryThumbnail.swift; sourceTree = "<group>"; };
 		B52B52A223E03959005563F6 /* TodayCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardButton.swift; sourceTree = "<group>"; };
 		B52B52A523E03D6C005563F6 /* SiriShortCutsNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriShortCutsNames.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				B544C73D23E16B9A009127F5 /* LocationManager.swift */,
 				B587119523E1CA75001DE6D9 /* ContactsFetcher.swift */,
 				B54DB59123E28EA2001A5646 /* ImagePicker.swift */,
+				B52AB2D823FD9FFC00A03553 /* FetchContactWithIdentifier.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				B544C74023E16CB3009127F5 /* LocationResultModel.swift in Sources */,
 				B5FED25B23E019D4005D5F0B /* AppDelegate.swift in Sources */,
 				B538B8D223E05045003598C2 /* TodayCardThumbnail.swift in Sources */,
+				B52AB2D923FD9FFC00A03553 /* FetchContactWithIdentifier.swift in Sources */,
 				B5EF099023E099A900EB5DEC /* TextView.swift in Sources */,
 				B587119C23E1CC9F001DE6D9 /* ContactRow.swift in Sources */,
 				B54DB59423E29102001A5646 /* ImageAndCaptionAdder.swift in Sources */,
